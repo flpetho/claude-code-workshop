@@ -1,0 +1,745 @@
+# Day 5: Deploy & Ship
+
+**Duration**: 2 hours
+**Format**: Deploy Session (30 min) + Presentations (90 min)
+
+---
+
+## Welcome to Day 5! 🎉
+
+Today you'll deploy your project to the internet and present it to the team. This is celebration day!
+
+**What You'll Do:**
+- ✅ Deploy to GitHub Pages (live URL!)
+- ✅ Present your work (3 minutes)
+- ✅ Celebrate what you built
+- ✅ Get your next steps roadmap
+
+---
+
+## Part 1: Deployment (30 min)
+
+### Everyone Deploys Together
+
+We'll walk through this step-by-step as a group.
+
+---
+
+### Step 1: Pre-Deployment Check (5 min)
+
+**Make sure everything is ready:**
+
+```bash
+# Navigate to your project
+cd ~/Documents/your-project-name
+
+# Check you're on main branch
+git branch
+
+# Make sure everything is committed
+git status
+```
+
+**Should say:** "nothing to commit, working tree clean"
+
+**If not clean:**
+```bash
+git add .
+git commit -m "Final updates before deployment"
+git push
+```
+
+**Test locally one more time:**
+```bash
+open index.html
+```
+
+**Everything working?** ✅ Let's deploy!
+
+---
+
+### Step 2: Enable GitHub Pages (5 min)
+
+**Follow along on your screen:**
+
+1. Go to your repository on **github.com**
+2. Click **"Settings"** tab (top navigation)
+3. Click **"Pages"** in left sidebar
+4. Under **"Source"**:
+   - Branch: Select **"main"**
+   - Folder: Select **"/ (root)"**
+   - Click **"Save"**
+
+**GitHub will show:**
+```
+✅ Your site is live at https://username.github.io/project-name/
+```
+
+**Wait 2 minutes** for GitHub to build your site.
+
+---
+
+### Step 3: Test Your Live Site (3 min)
+
+**Visit your URL:**
+```
+https://YOUR-USERNAME.github.io/YOUR-PROJECT-NAME/
+```
+
+**Does it work?** 🎉
+
+**Common issues:**
+
+**404 Error?**
+- Main file must be named `index.html` (exact spelling)
+- Wait 2-3 minutes, try again
+- Hard refresh: Cmd+Shift+R (Mac) or Ctrl+F5 (Windows)
+
+**Images or CSS not loading?**
+- Check file paths are relative (not absolute)
+- `images/logo.png` ✅
+- `/images/logo.png` ❌
+
+**Ask instructor if stuck!**
+
+---
+
+### Step 4: Update README with Live URL (5 min)
+
+**Add your live demo link:**
+
+```bash
+# Open README.md
+open README.md
+```
+
+**Add at the very top:**
+
+```markdown
+# Your Project Name
+
+🌐 **Live Demo**: https://your-username.github.io/your-project-name/
+
+[Rest of your README...]
+```
+
+**Commit the update:**
+```bash
+git add README.md
+git commit -m "Add live demo URL to README"
+git push
+```
+
+---
+
+### Step 5: Add Screenshot (7 min)
+
+**Take a beautiful screenshot:**
+
+1. Open your **live site** (not local file)
+2. Make it look good (enter sample data, open features)
+3. Take screenshot:
+   - **Mac:** Cmd + Shift + 4 (select area)
+   - **Windows:** Windows + Shift + S
+4. Save as `screenshot.png` in project root folder
+
+**Add to README:**
+
+```markdown
+## Screenshot
+
+![Project Screenshot](screenshot.png)
+
+## Features
+
+- [Your features list]
+```
+
+**Commit:**
+```bash
+git add screenshot.png README.md
+git commit -m "Add project screenshot"
+git push
+```
+
+**Refresh your GitHub repo - screenshot should appear!**
+
+---
+
+### Step 6: Create Release (5 min)
+
+**Tag this as your v1.0 release:**
+
+```bash
+# Tag your current version
+git tag -a v1.0.0 -m "Claude Code 101 Workshop - Initial Release"
+
+# Push the tag
+git push origin v1.0.0
+```
+
+**On GitHub:**
+
+1. Go to your repository
+2. Click **"Releases"** (right sidebar)
+3. Click **"Create a new release"**
+4. **Choose tag:** v1.0.0
+5. **Release title:** "v1.0.0 - Workshop Release"
+6. **Description:**
+
+```markdown
+Built during Claude Code 101 Workshop (January 2026)
+
+## What It Does
+[Brief description of your tool]
+
+## Features
+- Feature 1
+- Feature 2
+- Feature 3
+
+## Live Demo
+https://your-username.github.io/your-project-name/
+```
+
+7. Click **"Publish release"**
+
+**You just created your first official release!** 🚀
+
+---
+
+## Part 2: Presentations (90 min)
+
+### Format
+
+**Each person presents for 3 minutes:**
+
+- 8-10 participants = 30-40 minutes of presentations
+- 5-10 minutes per person for questions
+- Break in the middle if needed
+
+### Your Presentation Structure
+
+**Preparation:**
+
+1. **Have your live site open and ready** (in browser tab)
+2. **Test it works** (click around, make sure everything functions)
+3. **Have backup screenshots** (in case wifi is slow)
+4. **Practice your demo** at least once
+
+---
+
+### Presentation Template (3 minutes)
+
+**0:00-0:30 - Introduction**
+
+"Hi, I'm [name]. I built [project name], which helps [users] [accomplish task].
+
+The problem I wanted to solve was [specific pain point I experienced or observed]."
+
+**Example:**
+```
+"Hi, I'm Sarah. I built QuickCite, which helps genealogy 
+researchers create properly formatted source citations in seconds.
+
+The problem was that manual citation formatting took 5-10 minutes 
+per source and was error-prone."
+```
+
+---
+
+**0:30-2:00 - Demo (90 seconds)**
+
+**This is your moment!** Show off what you built.
+
+**Do:**
+- ✅ Open your live site (already loaded!)
+- ✅ Show 1-2 core features working
+- ✅ Highlight something cool (command, visualization, interaction)
+- ✅ Use realistic data (not "test" or "asdf")
+- ✅ Talk while you demo (no silent clicking)
+
+**Don't:**
+- ❌ Apologize for anything ("Sorry it's not perfect...")
+- ❌ Spend time navigating or logging in
+- ❌ Explain code line-by-line
+- ❌ Try to show everything (pick the best parts)
+
+**Example:**
+```
+[Opens site - already loaded]
+
+"Here's the tool. I enter a source title, author, publication year...
+[Types while talking]
+
+I select my format - let's try Chicago style...
+[Clicks dropdown]
+
+And it instantly generates the properly formatted citation.
+[Shows result]
+
+The coolest part is this copy button - one click and it's ready 
+to paste into my research document.
+[Clicks, shows success message]
+
+I also built a citation library feature where I can save and 
+reload all my citations.
+[Shows saved citations table]"
+```
+
+---
+
+**2:00-2:30 - What You Learned (30 seconds)**
+
+**Share your experience:**
+
+"Through this workshop, I learned [2-3 specific skills]:
+- [Skill 1] - Example: Creating custom slash commands
+- [Skill 2] - Example: Building interactive dashboards
+- [Skill 3] - Example: Git/GitHub workflow
+
+This tool will help [specific impact]:
+- Save me 30 minutes per week
+- Already planning to share with [team/users]
+- Want to add [future feature] next"
+
+**Example:**
+```
+"I learned three main things: how to create custom slash commands 
+that save time, how to build interactive data visualizations using 
+just CSS, and a professional Git workflow.
+
+This will save me about an hour every week since I'm actively 
+researching my family tree. I'm already planning to share it with 
+my family history group, and next I want to add import from 
+FamilySearch.org."
+```
+
+---
+
+**2:30-3:00 - Questions (30 seconds)**
+
+**Instructor or audience asks 1-2 quick questions**
+
+Answer briefly and confidently. It's okay to say "I haven't implemented that yet, but it would be cool!"
+
+---
+
+### If Your Demo Breaks
+
+**Stay calm!** This happens to everyone.
+
+**What to do:**
+
+1. **Acknowledge calmly:** "Hmm, that's not working right now..."
+
+2. **Explain what it's supposed to do:** "This normally shows the formatted citation and copies it to clipboard..."
+
+3. **Show your backup screenshot:** "Here's what it looks like when working..."
+
+4. **Emphasize learning:** "The building process taught me [skills], and I'm proud of what I created even if this demo glitch happened."
+
+**Remember:** Your effort and learning count! A demo glitch doesn't diminish what you built.
+
+---
+
+## Presentation Tips
+
+### Before Your Turn
+
+- ✅ Live site open in browser tab
+- ✅ Sample data ready (don't use empty forms)
+- ✅ Know exactly what you'll click
+- ✅ Deep breath - you've got this!
+
+### During Your Turn
+
+- ✅ Speak clearly and at normal pace
+- ✅ Show enthusiasm (you built this!)
+- ✅ Look at the camera/audience
+- ✅ Smile - this is celebration!
+
+### What Makes a Great Demo
+
+**Good:**
+- "Let me show you how it works" [shows]
+- "The coolest part is..." [highlights feature]
+- "This solves [problem] by..." [explains value]
+
+**Avoid:**
+- "Sorry this isn't very good..."
+- "I ran out of time to..."
+- "I know it's not perfect but..."
+
+**Be proud of what you built!**
+
+---
+
+## Part 3: Celebration & Next Steps
+
+### What You Accomplished
+
+**5 days ago:**
+- Maybe never used terminal before
+- Didn't know Git or GitHub
+- Hadn't built anything with AI
+
+**Today:**
+- ✅ Professional project structure
+- ✅ Working tool deployed to internet
+- ✅ Git workflow mastery
+- ✅ Custom slash commands
+- ✅ Data visualization
+- ✅ Interactive features
+- ✅ Public portfolio piece
+- ✅ Presentation skills
+
+**That's incredible progress!** 🎉
+
+---
+
+## Continuing Your Journey
+
+### Immediate Next Steps (This Week)
+
+**1. Use Your Tool**
+- Does it actually help you?
+- Get feedback from colleagues
+- Iterate based on real use
+
+**2. Share Your Work**
+- Post in FamilySearch Slack
+- Add to your portfolio
+- Show in 1-on-1 with manager
+
+**3. Build Another Tool**
+- You know how now!
+- Pick something from your backlog
+- Apply what you learned
+
+---
+
+### Level Up: Professional Workflow (Next Month)
+
+**You're ready to learn the two-phase approach!**
+
+**What you'll learn:**
+- Planning phase before building
+- Using multiple AI agents
+- Full orchestration system
+- Higher quality output
+
+**Resources available:**
+
+📚 **Professional Workflow Guide**
+- [Professional Workflow](../resources/professional-workflow.md) - Two-phase planning approach
+- [Quick PRD Template](../resources/quick-prd-template.md) - Start planning in minutes
+- [Complete PRD Guide](../resources/prd-guide.md) - Full project planning system
+
+🔧 **Tech Stack & Building**
+- [Quick Tech Stack](../resources/quick-tech-stack.md) - Top 10 essential technologies
+- [Complete Tech Reference](../resources/tech-stack-reference.md) - All options rated and explained
+- [Claude Code Prompts](../resources/claude-code-prompts.md) - Copy-paste for common features
+- Advanced project initialization script (in workshop folder)
+
+🎯 **When to use these:**
+- When planning your next project
+- When choosing technologies for a build
+- When you want higher quality output
+- When working on complex projects
+- When collaborating with a team
+
+**Access:** All links above + workshop website "After Workshop" section
+
+---
+
+### Keep Learning
+
+**Resources:**
+
+📖 **Documentation**
+- Claude Code official docs
+- Git/GitHub tutorials
+- Advanced features guide
+
+👥 **Community**
+- FamilySearch Slack: #claude-code
+- Weekly office hours
+- Project showcase channel
+- Workshop alumni group
+
+🎓 **Advanced Topics** (when ready)
+- Agents deep dive
+- MCP servers
+- Hooks and automation
+- Team collaboration
+
+💡 **Project Ideas**
+- Main Project Guide
+- 50+ project examples
+- FamilySearch-specific ideas
+- UX/PM productivity tools
+
+---
+
+### Continuing Support
+
+**Questions after workshop?**
+
+**Week 1-2:**
+- Workshop Slack channel (still active)
+- Instructor available
+- Peer support
+
+**Ongoing:**
+- FamilySearch #claude-code channel
+- Bi-weekly office hours
+- Community showcases
+
+**Remember:** No question is too basic!
+
+---
+
+## Certificates & Recognition
+
+**Everyone who presents receives:**
+
+📜 **Certificate of Completion**
+- Claude Code 101 Graduate
+- Date and cohort
+- Signed by instructor
+
+🏆 **Recognition**
+- Featured in FamilySearch newsletter
+- Project showcase spotlight
+- Access to alumni community
+
+🎁 **Resources**
+
+**Planning Your Next Project:**
+- [Quick PRD Template](../resources/quick-prd-template.md) - One-page planning doc
+- [Complete PRD Guide](../resources/prd-guide.md) - Comprehensive project planning
+- [Professional Workflow Guide](../resources/professional-workflow.md) - Two-phase approach
+
+**Choosing Technology:**
+- [Quick Tech Stack](../resources/quick-tech-stack.md) - Top 10 essential technologies
+- [Complete Tech Stack Reference](../resources/tech-stack-reference.md) - All frameworks, databases, services rated
+- [Claude Code Prompts](../resources/claude-code-prompts.md) - Copy-paste prompts for building
+
+**Project Guidance:**
+- [Project Selection Template](../resources/project-selection-template.md)
+- [Main Project Guide](../resources/main-project-guide.md)
+- Community Slack: #claude-code
+
+---
+
+## Post-Workshop Survey
+
+**We need your feedback!**
+
+**Help us improve:**
+- What worked well?
+- What was confusing?
+- What would you change?
+- Will you keep using Claude Code?
+
+**5 minutes, huge impact**
+
+[Survey link will be shared]
+
+---
+
+## Final Words
+
+### You Started This Week...
+
+As UX/PM professionals interested in AI tools.
+
+### You're Finishing...
+
+As **builders** who can materialize ideas into working tools.
+
+**That's powerful.**
+
+### What You Can Do Now:
+
+- ✅ Build research tools that save hours
+- ✅ Create prototypes for stakeholder demos
+- ✅ Automate repetitive workflows
+- ✅ Contribute technical work to your team
+- ✅ Learn new tools faster (you know how to build!)
+
+### Don't Stop Here!
+
+**The best way to master these skills:**
+
+**Keep building.**
+
+Every project makes you better.
+Every tool you create adds value.
+Every prototype moves work forward.
+
+### What Will You Build Next?
+
+**You have:**
+- The skills
+- The tools
+- The community
+- The confidence
+
+**Go materialize more ideas!** 🚀
+
+---
+
+## Troubleshooting Deployment
+
+### GitHub Pages Shows 404
+
+**Check:**
+- Is your main file named `index.html`? (exact spelling, lowercase)
+- Did you select "main" branch in Pages settings?
+- Wait 3-5 minutes after enabling (it's not instant)
+
+**Still broken?**
+- Check Settings → Pages → Make sure it says "Your site is live"
+- Verify your repo is public (private repos need paid plan)
+- Try opening in incognito/private window
+
+---
+
+### Images or CSS Not Loading
+
+**Problem:** Absolute paths don't work on GitHub Pages
+
+**Wrong:**
+```html
+<img src="/images/logo.png">
+<link rel="stylesheet" href="/styles/main.css">
+```
+
+**Correct:**
+```html
+<img src="images/logo.png">
+<link rel="stylesheet" href="styles/main.css">
+```
+
+**Fix:**
+```
+"My images aren't loading on GitHub Pages. Update all 
+file paths to be relative, not absolute."
+```
+
+---
+
+### Site Not Updating
+
+**I pushed changes but site hasn't updated**
+
+**Solutions:**
+1. Wait 2-3 minutes (GitHub needs time to rebuild)
+2. Hard refresh: Cmd+Shift+R (Mac) or Ctrl+F5 (Windows)
+3. Clear browser cache
+4. Check git push actually worked: `git status`
+
+---
+
+## Backup Plans
+
+### If GitHub Pages Fails
+
+**Alternative: Share via GitHub repo**
+
+Your code is still visible at:
+```
+https://github.com/username/project-name
+```
+
+People can:
+- Download and open locally
+- View your code
+- See your README and screenshots
+
+**Still counts!** The code exists and is shareable.
+
+---
+
+### If Demo Breaks During Presentation
+
+**You're prepared:**
+
+1. Stay calm
+2. Show screenshot
+3. Explain what it does
+4. Emphasize learning
+
+**Backup demo:**
+- Record video of working demo (pre-record option)
+- Show on local machine (if wifi fails)
+- Walk through screenshots
+
+---
+
+## Deliverables Checklist
+
+**By end of Day 5, you have:**
+
+- [ ] Project deployed to GitHub Pages
+- [ ] Live URL in README
+- [ ] Screenshot added to repo
+- [ ] Release v1.0.0 created
+- [ ] 3-minute presentation delivered
+- [ ] Post-workshop survey completed
+- [ ] Certificate received
+- [ ] Access to advanced resources
+
+**Success!** 🎉
+
+---
+
+## Looking Forward
+
+### This Week
+- Use your tool
+- Get feedback
+- Make improvements
+
+### This Month
+- Build 1-2 more tools
+- Try professional workflow
+- Help a colleague learn
+
+### This Year
+- Become the "build with AI" person on your team
+- Create tool library
+- Mentor others
+
+### Career Impact
+
+**You now have:**
+- Tangible skills (GitHub portfolio)
+- Problem-solving capability
+- Technical confidence
+- Continuous learning mindset
+
+**This opens doors.**
+
+---
+
+**Congratulations on completing Claude Code 101!** 🎉
+
+You've proven that UX/PM professionals can build. Now go materialize more ideas!
+
+**Thank you for being part of this cohort!**
+
+---
+
+*Workshop Complete • January 2026*
+*Claude Code 101 - UX/PM Professional Workshop*
+
+**Stay in touch!**
+- FamilySearch Slack: #claude-code
+- Office Hours: Every other Friday
+- Alumni Showcases: Monthly
+
+**Questions? Stuck? Want to share success?**
+**We're here to help!** 🚀

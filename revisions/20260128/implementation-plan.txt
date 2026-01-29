@@ -1,0 +1,838 @@
+# Workshop Implementation Plan
+
+**Complete guide to launching the revised Claude Code 101 workshop**
+
+---
+
+## Overview
+
+This document outlines everything needed to go from revised curriculum to delivered workshop.
+
+**Status:** Content complete, ready for implementation phase
+
+**Timeline:** 2-3 weeks from today to first workshop
+
+---
+
+## Phase 1: Content Integration (Week 1)
+
+### Day 1-2: Replace Core Modules
+
+**Task: Update Days 1-3 on website**
+
+**Files to replace:**
+- `days/day-01-foundation.md` → Use revised version ✅
+- `days/day-02-research.md` → Use revised version ✅
+- `days/day-03-design.md` → Use revised version ✅
+- `days/day-04-product-tools.md` → Use revised version ✅
+- `days/day-05-deploy.md` → Use revised version ✅
+
+**Steps:**
+1. Backup old files to `archive/` folder
+2. Replace with new versions
+3. Update website navigation if needed
+4. Test all internal links work
+
+**Time estimate:** 2 hours
+
+---
+
+### Day 3-4: Add New Resources
+
+**Task: Add new documents to resources/**
+
+**New files to add:**
+1. `resources/professional-workflow.md` ✅
+2. `resources/project-selection-template.md` ✅
+3. `resources/visual-guides-reference.md` ✅
+
+**Update existing:**
+- `resources/main-project-guide.md` - Already good, keep as-is
+- `resources/installation-reference.md` - Already simplified
+- `resources/github-setup.md` - Already good
+
+**Add to website navigation:**
+```html
+<section class="resources">
+  <h2>After Workshop</h2>
+  <div class="card-grid">
+    <div class="card">
+      <h3>Professional Workflow</h3>
+      <p>Two-phase planning approach</p>
+      <a href="/viewer?file=resources/professional-workflow.md">Learn More</a>
+    </div>
+  </div>
+</section>
+```
+
+**Time estimate:** 3 hours
+
+---
+
+### Day 5: Update Exercises
+
+**Task: Revise exercise files**
+
+**Current exercises are mostly good, but add:**
+
+**To each exercise file, add this section:**
+
+```markdown
+## Goals Framework
+
+### Minimum (Everyone achieves)
+- [ ] Core deliverable working
+- [ ] Committed to GitHub
+- [ ] Tests passing
+
+### Target (Most people)
+- [ ] Core + 1-2 enhancements
+- [ ] Polished presentation
+- [ ] Documentation complete
+
+### Stretch (Advanced participants)
+- [ ] Multiple advanced features
+- [ ] Exceptional polish
+- [ ] Going beyond requirements
+
+Remember: Minimum = Success! 🎉
+```
+
+**Time estimate:** 2 hours
+
+---
+
+## Phase 2: Visual Assets (Week 1-2)
+
+### Create Visual Diagrams
+
+**Task: Design 12 visual guides**
+
+**Priority 1 (Create first):**
+1. Git Workflow Diagram
+2. Project Structure Visual
+3. Context Pyramid
+4. Success Matrix
+
+**Priority 2:**
+5. GitHub Pages Flow
+6. Two-Phase Comparison
+7. Command Structure
+8. Terminal Command Flow
+
+**Priority 3 (Nice to have):**
+9. Journey Map
+10. Decision Tree
+11. File Paths Guide
+12. Branch Workflow
+
+**Design specifications:**
+- Tool: Figma, Miro, or PowerPoint
+- Colors: FamilySearch brand (#2A5083, #0051C1, etc.)
+- Format: PNG or SVG
+- Size: 1200px wide for web display
+- Text: 18pt minimum for readability
+
+**Deliverables:**
+- Source files (editable)
+- Exported images (PNG/SVG)
+- Naming: `git-workflow.png`, `project-structure.png`, etc.
+
+**Storage:**
+```
+claude-code-101/
+└── visuals/
+    ├── git-workflow.png
+    ├── project-structure.png
+    ├── context-pyramid.png
+    └── ...
+```
+
+**Time estimate:** 8-12 hours (can delegate to designer)
+
+---
+
+### Video Demonstrations (Optional but Recommended)
+
+**Task: Record short demo videos**
+
+**Priority videos:**
+
+**Video 1: "Your First Claude Code Session" (3 min)**
+- Open terminal
+- Navigate to project
+- Run `claude`
+- Build simple HTML page
+- Open in browser
+
+**Video 2: "Git Basics in 2 Minutes" (2 min)**
+- Make a change
+- git add, commit, push
+- View on GitHub
+
+**Video 3: "Creating Your First Slash Command" (3 min)**
+- Create command file
+- Write instructions
+- Use the command
+- Show result
+
+**Video 4: "Deploying to GitHub Pages" (3 min)**
+- Enable GitHub Pages
+- Visit live URL
+- Show it works
+- Celebrate!
+
+**Specs:**
+- Tool: Loom or QuickTime
+- Resolution: 1080p
+- Show terminal + browser side-by-side
+- Clear audio narration
+- Keep under 3 minutes each
+- Include captions
+
+**Storage:**
+- Upload to YouTube (unlisted)
+- Embed in workshop pages
+- Provide direct links in exercises
+
+**Time estimate:** 4 hours recording + editing
+
+---
+
+## Phase 3: Testing (Week 2)
+
+### Technical Testing
+
+**Task: Walkthrough entire workshop as participant**
+
+**Test checklist:**
+
+**Day 1:**
+- [ ] workshop-init-project.sh works
+- [ ] Creates expected file structure
+- [ ] Git init works
+- [ ] GitHub connection works
+- [ ] First commit succeeds
+
+**Day 2:**
+- [ ] Sample data creation works
+- [ ] Visualizations display correctly
+- [ ] Git branch workflow works
+- [ ] Exercises are clear
+
+**Day 3:**
+- [ ] Command creation works
+- [ ] Commands execute properly
+- [ ] Interactive elements function
+- [ ] No broken links
+
+**Day 4:**
+- [ ] Professional workflow explanation clear
+- [ ] Polish checklist comprehensive
+- [ ] README template useful
+
+**Day 5:**
+- [ ] GitHub Pages deployment works
+- [ ] Screenshot process clear
+- [ ] Release tagging works
+- [ ] Presentation template helpful
+
+**Tools:**
+- Test on fresh Mac (simulate new user)
+- Test with different GitHub accounts
+- Test all links in documentation
+- Test script on different paths
+
+**Time estimate:** 4-6 hours
+
+---
+
+### Content Review
+
+**Task: Proofreading and consistency check**
+
+**Check for:**
+- [ ] Consistent terminology (Claude Code, not "claude code")
+- [ ] FamilySearch brand consistency
+- [ ] No broken links
+- [ ] Command syntax accuracy
+- [ ] Clear headings and navigation
+- [ ] Friendly, supportive tone throughout
+- [ ] Technical accuracy
+
+**Get feedback from:**
+- 1-2 UX designers who haven't seen it
+- 1-2 PMs who haven't seen it
+- Someone technical (verify commands)
+- Instructor/facilitator
+
+**Time estimate:** 3-4 hours
+
+---
+
+## Phase 4: Pilot Workshop (Week 3)
+
+### Recruit Pilot Participants
+
+**Task: Find 3-5 volunteers**
+
+**Criteria:**
+- Mix of UX and PM
+- Mix of technical comfort levels
+- Available for all 5 sessions
+- Willing to give candid feedback
+
+**Communicate:**
+- "This is a pilot - help us improve it"
+- "We want honest feedback"
+- "Same certificate/benefits as full workshop"
+
+**Time estimate:** 1 hour recruiting
+
+---
+
+### Run Pilot Workshop
+
+**Schedule:** 5 consecutive days, 1 hour each + homework
+
+**Day 1: Monday**
+- Deliver revised Day 1 module
+- Observe: What's confusing?
+- Gather feedback after session
+- Adjust for Day 2
+
+**Day 2: Tuesday**
+- Deliver revised Day 2 module
+- Check: Did they complete Day 1 homework?
+- Troubleshoot any issues
+- Gather feedback
+
+**Day 3: Wednesday**
+- Deliver revised Day 3 module
+- Check homework completion
+- Note: Are they keeping pace?
+- Gather feedback
+
+**Day 4: Thursday**
+- Deliver revised Day 4 module
+- Introduce professional workflow
+- Check understanding
+- Gather feedback
+
+**Day 5: Friday**
+- Deploy session
+- Presentations!
+- Comprehensive feedback session
+- Collect survey data
+
+**Instructor notes after each session:**
+- What worked well?
+- What was confusing?
+- What took longer than expected?
+- What should be added/removed?
+- Technical issues encountered?
+
+**Time estimate:** 5 days + 2 hours prep
+
+---
+
+### Incorporate Pilot Feedback
+
+**Task: Revise based on pilot experience**
+
+**Likely adjustments:**
+- Timing (some sessions may run long)
+- Clarifications (where people got stuck)
+- Exercise difficulty (too easy/hard?)
+- Visual aids (what helped most?)
+- Technical troubleshooting (common issues?)
+
+**Process:**
+1. Compile all feedback
+2. Identify patterns (3+ people said same thing)
+3. Prioritize changes (critical vs nice-to-have)
+4. Make revisions
+5. Update documentation
+
+**Time estimate:** 4-6 hours
+
+---
+
+## Phase 5: Launch Preparation (Week 3)
+
+### Marketing & Communications
+
+**Task: Promote workshop to target audience**
+
+**Announcement channels:**
+- FamilySearch UX Slack
+- FamilySearch PM Slack
+- Internal newsletter
+- Team meetings
+- Manager announcements
+
+**Announcement template:**
+
+```
+🚀 Claude Code 101 Workshop - NOW OPEN!
+
+Learn to build tools and prototypes with AI assistance.
+
+WHAT: 5-day hands-on workshop
+WHO: UX designers and PMs (no coding experience needed!)
+WHEN: [Dates], 1 hour daily + 45min homework
+WHERE: MS Teams (remote)
+SIZE: Limited to 10 participants
+
+You'll learn:
+- Build working tools with Claude Code
+- Professional Git/GitHub workflow
+- Create custom automation commands
+- Deploy projects to the web
+
+You'll build:
+- YOUR choice of tool (citation generator, meeting analyzer, etc.)
+- Actual working prototype by Day 5
+- Public portfolio piece on GitHub
+
+No prerequisites! We start from the beginning.
+
+REGISTER: [Link]
+Questions: [Your contact]
+
+Limited spots - register today!
+```
+
+**Time estimate:** 2 hours
+
+---
+
+### Participant Preparation
+
+**Task: Send pre-workshop materials**
+
+**Email 1 week before:**
+
+Subject: "Claude Code 101 - Pre-Workshop Setup"
+
+```
+Hi [Name],
+
+Excited to have you in Claude Code 101 starting [date]!
+
+BEFORE DAY 1, please complete:
+
+1. ✅ Verify Claude Code works
+   Open terminal, type: claude --version
+   See output? You're ready!
+   Need help? [Contact instructor]
+
+2. ✅ Create GitHub account (if you don't have one)
+   github.com → Sign up
+   Guide: [link to github-setup.md]
+
+3. ✅ Download project setup script
+   [Link to workshop-init-project.sh]
+   Save to Downloads folder
+
+4. ✅ Review Day 1 module (optional)
+   Get a preview: [link]
+
+OPTIONAL PRE-READING:
+- Git Basics: [link]
+- What is Claude Code: [link]
+
+WORKSHOP SCHEDULE:
+Day 1: [Date/Time] - Foundation
+Day 2: [Date/Time] - Data Processing  
+Day 3: [Date/Time] - Interactivity
+Day 4: [Date/Time] - Polish
+Day 5: [Date/Time] - Deploy & Present (2 hours)
+
+QUESTIONS?
+Reply to this email or ask in Slack: [channel]
+
+See you on Day 1!
+
+[Your name]
+Claude Code 101 Instructor
+```
+
+**Email 1 day before:**
+
+Subject: "Claude Code 101 - We start tomorrow!"
+
+```
+Hi [Name],
+
+Tomorrow we start! Here's what to have ready:
+
+TECH CHECK:
+- [ ] Laptop charged
+- [ ] MS Teams working
+- [ ] Terminal accessible
+- [ ] Claude Code verified (claude --version)
+
+WHAT TO BRING:
+- [ ] Notebook for notes (optional)
+- [ ] Project idea (or we'll help you choose one!)
+- [ ] Questions!
+- [ ] Excitement 🎉
+
+ZOOM/TEAMS LINK:
+[Meeting link]
+
+TIME: [Start time]
+
+MINDSET:
+- No coding experience needed
+- Questions are encouraged
+- We start from zero
+- You'll build something real!
+
+See you tomorrow!
+
+[Your name]
+```
+
+**Time estimate:** 2 hours drafting emails
+
+---
+
+### Logistics Setup
+
+**Task: Prepare delivery infrastructure**
+
+**MS Teams:**
+- [ ] Create meeting for all 5 days
+- [ ] Set up recording (if desired)
+- [ ] Test screen sharing
+- [ ] Test breakout rooms (if using)
+
+**Slack Channel:**
+- [ ] Create #claude-code-101-cohort-[month]
+- [ ] Pin key resources
+- [ ] Introduce yourself
+- [ ] Set expectations for response time
+
+**Materials:**
+- [ ] All links tested and working
+- [ ] Project script downloadable
+- [ ] Visual aids ready to share
+- [ ] Example projects accessible
+
+**Backup plans:**
+- [ ] Recorded video demos (if live demo fails)
+- [ ] Troubleshooting doc ready
+- [ ] Contact info for urgent help
+
+**Time estimate:** 3 hours
+
+---
+
+## Delivery Checklist
+
+### Before Each Session
+
+**15 minutes before:**
+- [ ] Open all relevant tabs (docs, examples)
+- [ ] Test screen sharing
+- [ ] Have visuals ready to present
+- [ ] Review session plan
+- [ ] Join 5 minutes early
+
+---
+
+### During Each Session
+
+**Time management:**
+- Set timer for each segment
+- Warn at 5 minutes remaining
+- Be OK cutting teaching short if needed
+- Prioritize hands-on time
+
+**Engagement:**
+- Check chat frequently
+- Ask "anyone stuck?" regularly
+- Call on quiet people
+- Celebrate small wins
+
+**Adaptation:**
+- If everyone's stuck, pause and clarify
+- If everyone's done early, add challenge
+- If timing's off, adjust on the fly
+- Take notes for next cohort
+
+---
+
+### After Each Session
+
+**Immediately:**
+- [ ] Answer lingering questions in Slack
+- [ ] Post session recording (if applicable)
+- [ ] Share any additional resources
+- [ ] Note what to adjust
+
+**Daily:**
+- [ ] Review homework submissions (GitHub)
+- [ ] Identify who needs extra help
+- [ ] Prep for next day's session
+
+---
+
+## Success Metrics
+
+### Participation
+
+**Track:**
+- Attendance rate (target: 90%+)
+- Homework completion (target: 80%+)
+- GitHub commits per person (target: 10+)
+- Day 5 presentation rate (target: 100%)
+
+---
+
+### Learning Outcomes
+
+**By end of workshop, participants should:**
+- [ ] Have working tool on GitHub
+- [ ] Deployed to GitHub Pages
+- [ ] Created 2+ custom commands
+- [ ] Understand git workflow
+- [ ] Confident to build independently
+
+**Measure via:**
+- Portfolio review (GitHub repos)
+- Post-workshop survey
+- 1-month follow-up (still using it?)
+
+---
+
+### Satisfaction
+
+**Post-workshop survey questions:**
+
+**1. Overall Experience** (1-5 scale)
+- How satisfied are you with this workshop?
+
+**2. Content** (1-5 scale)
+- Were the materials clear and helpful?
+- Was the pacing appropriate?
+- Was hands-on time sufficient?
+
+**3. Confidence** (1-5 scale)
+- How confident do you feel using Claude Code now?
+- How likely are you to continue building with it?
+- How likely to recommend workshop to colleagues?
+
+**4. What Worked**
+- What was most valuable?
+- What should we keep?
+
+**5. What to Improve**
+- What was confusing?
+- What should we add?
+- What should we remove?
+
+**6. Future Plans**
+- What will you build next?
+- Would you attend an advanced workshop?
+
+**Target:** 4.5+ overall satisfaction
+
+---
+
+## Post-Workshop
+
+### Follow-Up Support
+
+**Week 1-2:**
+- Active in Slack channel
+- Office hours (1 hour, optional drop-in)
+- Answer questions quickly
+
+**Month 1:**
+- Share participant projects in showcase
+- Recognize achievements publicly
+- Collect testimonials
+- Gather feedback on long-term impact
+
+**Ongoing:**
+- Bi-weekly office hours
+- Alumni community access
+- Advanced workshop option
+
+---
+
+### Continuous Improvement
+
+**After each cohort:**
+1. Review all feedback
+2. Update documentation
+3. Refine exercises
+4. Improve visuals
+5. Share learnings with team
+
+**Iterate on:**
+- Content clarity
+- Exercise difficulty
+- Time allocation
+- Support materials
+- Technical setup
+
+---
+
+## Resources Required
+
+### Time Investment
+
+**One-time setup:** 30-40 hours
+- Content integration: 10 hours
+- Visual creation: 12 hours
+- Video creation: 4 hours
+- Testing: 6 hours
+- Pilot workshop: 8 hours
+
+**Per cohort:** 15-20 hours
+- Prep: 3 hours
+- Delivery: 7 hours (5 days Ã— 1hr + Day 5 extra)
+- Support: 5 hours
+- Follow-up: 2 hours
+
+---
+
+### Tools & Access
+
+**Required:**
+- MS Teams (for delivery)
+- Slack (for async support)
+- GitHub organization (for examples)
+- Domain for website (or GitHub Pages)
+
+**Optional:**
+- Loom (video recording)
+- Figma (visual design)
+- Survey tool (feedback collection)
+
+---
+
+### Team Support
+
+**Ideal team:**
+- **Instructor** (1) - You! Delivers workshop
+- **Designer** (0.5) - Creates visuals
+- **Reviewer** (0.25) - Proofreads content
+- **Pilot participants** (3-5) - Test run
+
+**Minimum viable:**
+- Just you! (But visuals help A LOT)
+
+---
+
+## Timeline Summary
+
+### Week 1
+- Day 1-2: Integrate content
+- Day 3-4: Add resources
+- Day 5: Update exercises
+
+### Week 2
+- Day 1-3: Create visuals
+- Day 4-5: Technical testing
+
+### Week 3
+- Day 1: Pilot prep
+- Day 2-6: Pilot workshop (Mon-Fri)
+- Day 7: Incorporate feedback
+
+### Week 4 (Optional buffer)
+- Final polish
+- Marketing
+- Logistics
+
+### Week 5+
+- Launch first official cohort!
+
+---
+
+## Next Actions
+
+### Immediate (This Week)
+
+1. **Decide: What's the launch date?**
+   - Pick first cohort dates
+   - Block calendar
+   - Set deadline
+
+2. **Prioritize visuals**
+   - Which 4 are most critical?
+   - Who can create them?
+   - Set deadline
+
+3. **Test technical setup**
+   - Run workshop script
+   - Verify all commands
+   - Fix any issues
+
+---
+
+### Short Term (Next 2 Weeks)
+
+4. **Create visuals**
+   - Design Priority 1 set
+   - Get feedback
+   - Export and integrate
+
+5. **Run pilot**
+   - Recruit participants
+   - Deliver workshop
+   - Gather feedback
+
+6. **Refine content**
+   - Incorporate pilot learnings
+   - Update documentation
+   - Finalize materials
+
+---
+
+### Launch (Week 3-4)
+
+7. **Market workshop**
+   - Send announcements
+   - Open registration
+   - Confirm participants
+
+8. **Prepare participants**
+   - Send pre-workshop email
+   - Verify tech setup
+   - Answer questions
+
+9. **Deliver workshop**
+   - Execute with confidence
+   - Support participants
+   - Celebrate success!
+
+---
+
+## You've Got This! 🚀
+
+**Everything is ready:**
+- ✅ Content revised and streamlined
+- ✅ New resources created
+- ✅ Clear implementation plan
+- ✅ Success metrics defined
+- ✅ Support structure outlined
+
+**The curriculum is solid.** Now it's execution time.
+
+**Questions?** Review this plan. Then GO BUILD IT!
+
+Your participants will thank you. Their managers will notice. FamilySearch will benefit.
+
+**Let's ship this workshop!** 🎉
+
+---
+
+*Implementation Plan - Version 1.0*
+*Claude Code 101 Workshop*
+*January 2026*

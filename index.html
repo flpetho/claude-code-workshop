@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claude Code 101 - UX/PM Workshop</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        border: 'hsl(240 3.7% 15.9%)',
+                        input: 'hsl(240 3.7% 15.9%)',
+                        ring: 'hsl(240 4.9% 83.9%)',
+                        background: '#262624',
+                        foreground: 'hsl(0 0% 98%)',
+                        primary: {
+                            DEFAULT: '#D17D59',
+                            foreground: '#262624',
+                        },
+                        secondary: {
+                            DEFAULT: 'hsl(240 3.7% 15.9%)',
+                            foreground: 'hsl(0 0% 98%)',
+                        },
+                        accent: {
+                            DEFAULT: 'hsl(240 3.7% 15.9%)',
+                            foreground: 'hsl(0 0% 98%)',
+                        },
+                        muted: {
+                            DEFAULT: 'hsl(240 3.7% 15.9%)',
+                            foreground: 'hsl(240 5% 64.9%)',
+                        },
+                        card: {
+                            DEFAULT: '#2e2e2c',
+                            foreground: 'hsl(0 0% 98%)',
+                        },
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+            background: #262624;
+            color: hsl(0 0% 98%);
+            line-height: 1.6;
+        }
+
+        .card-hover {
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card-hover:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .status-badge {
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.375rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.5rem 1rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            border-radius: 0.375rem;
+            transition: all 0.2s;
+            text-decoration: none;
+            font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
+        }
+
+        .btn-primary {
+            background: #D17D59;
+            color: #262624;
+        }
+
+        .btn-primary:hover {
+            background: #c06d49;
+        }
+
+        .btn-secondary {
+            background: hsl(240 3.7% 15.9%);
+            color: hsl(0 0% 98%);
+            border: 1px solid hsl(240 3.7% 20%);
+        }
+
+        .btn-secondary:hover {
+            background: hsl(240 3.7% 20%);
+        }
+
+        .progress-bar {
+            height: 0.5rem;
+            background: hsl(240 3.7% 15.9%);
+            border-radius: 9999px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #D17D59 0%, #c06d49 100%);
+            transition: width 0.3s ease;
+        }
+
+        .badge {
+            font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
+        }
+    </style>
+</head>
+<body class="bg-background text-foreground antialiased">
+    <!-- Header -->
+    <div class="border-b border-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="py-8">
+                <div class="flex items-center justify-between">
+                    <div class="flex-1">
+                        <pre class="ascii-art text-primary" style="font-family: 'Courier New', Courier, monospace; font-size: 10px; line-height: 1.2; font-weight: bold; letter-spacing: -0.5px;">
+ ██████╗██╗      █████╗ ██╗   ██╗██████╗ ███████╗
+██╔════╝██║     ██╔══██╗██║   ██║██╔══██╗██╔════╝
+██║     ██║     ███████║██║   ██║██║  ██║█████╗
+██║     ██║     ██╔══██║██║   ██║██║  ██║██╔══╝
+╚██████╗███████╗██║  ██║╚██████╔╝██████╔╝███████╗
+ ╚═════╝╚══════╝╚═╝  ╚═╝ ╚═════╝ ╚═════╝ ╚══════╝
+
+ ██████╗ ██████╗ ██████╗ ███████╗
+██╔════╝██╔═══██╗██╔══██╗██╔════╝
+██║     ██║   ██║██║  ██║█████╗
+██║     ██║   ██║██║  ██║██╔══╝
+╚██████╗╚██████╔╝██████╔╝███████╗
+ ╚═════╝ ╚═════╝ ╚═════╝ ╚══════╝               </pre>
+                        <p class="text-muted-foreground mt-2 ml-1">UX/PM Professional Workshop</p>
+                    </div>
+                    <div class="badge inline-flex items-center gap-2 px-3 py-1.5 text-xs font-medium bg-secondary rounded-full border border-border">
+                        5-Day Workshop • January 2026
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+        <!-- Getting Started -->
+        <section class="mb-16">
+            <div class="mb-6">
+                <h2 class="text-2xl font-semibold tracking-tight">Getting Started</h2>
+                <p class="text-sm text-muted-foreground">Before Day 1</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="card-hover bg-card rounded-lg border border-border p-6">
+                    <h3 class="text-lg font-semibold mb-2">Installation</h3>
+                    <p class="text-sm text-muted-foreground mb-4">You're already set up! Quick reference only.</p>
+                    <a href="viewer.html?file=resources/installation-reference.md" class="btn btn-secondary text-xs">Reference</a>
+                </div>
+
+                <div class="card-hover bg-card rounded-lg border border-border p-6">
+                    <h3 class="text-lg font-semibold mb-2">Project Setup Script</h3>
+                    <p class="text-sm text-muted-foreground mb-4">Download the workshop project initializer</p>
+                    <a href="scripts/workshop-init-project.sh" class="btn btn-primary text-xs" download>Download Script</a>
+                </div>
+
+                <div class="card-hover bg-card rounded-lg border border-border p-6">
+                    <h3 class="text-lg font-semibold mb-2">Git/GitHub Setup</h3>
+                    <p class="text-sm text-muted-foreground mb-4">Simple cloud backup - Claude Code handles it for you</p>
+                    <a href="viewer.html?file=resources/simple-github-setup.md" class="btn btn-primary text-xs">Quick Setup</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5-Day Workshop -->
+        <section class="mb-16">
+            <div class="mb-6">
+                <h2 class="text-2xl font-semibold tracking-tight">5-Day Workshop</h2>
+                <p class="text-sm text-muted-foreground">Build professional tools with Claude Code</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+
+                <!-- Day 1 -->
+                <div class="card-hover bg-card rounded-lg border border-border p-6">
+                    <h3 class="text-lg font-semibold mb-2">Day 1: Foundation + Project Setup</h3>
+                    <p class="text-sm text-muted-foreground mb-4">Project setup, GitHub workflow, choose your project</p>
+                    <div class="flex flex-wrap gap-2">
+                        <a href="viewer.html?file=days/day-01-foundation.md" class="btn btn-primary text-xs">Module</a>
+                        <a href="viewer.html?file=exercises/day-01-portfolio-setup.md" class="btn btn-secondary text-xs">Exercise</a>
+                    </div>
+                </div>
+
+                <!-- Day 2 -->
+                <div class="card-hover bg-card rounded-lg border border-border p-6">
+                    <h3 class="text-lg font-semibold mb-2">Day 2: Research Intelligence</h3>
+                    <p class="text-sm text-muted-foreground mb-4">Data processing, visualizations, working session</p>
+                    <div class="flex flex-wrap gap-2">
+                        <a href="viewer.html?file=days/day-02-research.md" class="btn btn-primary text-xs">Module</a>
+                        <a href="viewer.html?file=exercises/day-02-research-dashboard.md" class="btn btn-secondary text-xs">Exercise</a>
+                    </div>
+                </div>
+
+                <!-- Day 3 -->
+                <div class="card-hover bg-card rounded-lg border border-border p-6">
+                    <h3 class="text-lg font-semibold mb-2">Day 3: Design Tools & Prototypes</h3>
+                    <p class="text-sm text-muted-foreground mb-4">Custom slash commands, interactive elements</p>
+                    <div class="flex flex-wrap gap-2">
+                        <a href="viewer.html?file=days/day-03-design.md" class="btn btn-primary text-xs">Module</a>
+                        <a href="viewer.html?file=exercises/day-03-prototype.md" class="btn btn-secondary text-xs">Exercise</a>
+                    </div>
+                </div>
+
+                <!-- Day 4 -->
+                <div class="card-hover bg-card rounded-lg border border-border p-6">
+                    <h3 class="text-lg font-semibold mb-2">Day 4: Product Tools & Polish</h3>
+                    <p class="text-sm text-muted-foreground mb-4">Professional workflow, polish your project</p>
+                    <div class="flex flex-wrap gap-2">
+                        <a href="viewer.html?file=days/day-04-product-tools.md" class="btn btn-primary text-xs">Module</a>
+                        <a href="viewer.html?file=exercises/day-04-competitive-intel.md" class="btn btn-secondary text-xs">Exercise</a>
+                    </div>
+                </div>
+
+                <!-- Day 5 -->
+                <div class="card-hover bg-card rounded-lg border border-border p-6">
+                    <h3 class="text-lg font-semibold mb-2">Day 5: Deploy & Ship</h3>
+                    <p class="text-sm text-muted-foreground mb-4">Deploy to web, present to team</p>
+                    <div class="flex flex-wrap gap-2">
+                        <a href="viewer.html?file=days/day-05-deploy.md" class="btn btn-primary text-xs">Module</a>
+                        <a href="viewer.html?file=exercises/day-05-toolkit.md" class="btn btn-secondary text-xs">Exercise</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- After Workshop -->
+        <section class="mb-16">
+            <div class="mb-6">
+                <h2 class="text-2xl font-semibold tracking-tight">After Workshop: Level Up</h2>
+                <p class="text-sm text-muted-foreground">Ready for advanced techniques? These resources help you build at professional level.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+
+                <!-- Planning & Strategy -->
+                <div class="card-hover bg-card rounded-lg border border-border p-6">
+                    <div class="text-xs text-accent-blue font-semibold mb-2">PLANNING</div>
+                    <h3 class="text-lg font-semibold mb-2">Quick PRD Template</h3>
+                    <p class="text-sm text-muted-foreground mb-4">One-page planning doc - fill it out, save as PRD.md, and let Claude Code build it</p>
+                    <a href="viewer.html?file=resources/quick-prd-template.md" class="btn btn-primary text-xs">Get Template</a>
+                </div>
+
+                <div class="card-hover bg-card rounded-lg border border-border p-6">
+                    <div class="text-xs text-accent-blue font-semibold mb-2">PLANNING</div>
+                    <h3 class="text-lg font-semibold mb-2">Complete PRD Guide</h3>
+                    <p class="text-sm text-muted-foreground mb-4">Interview questions, examples, and comprehensive project planning framework</p>
+                    <a href="viewer.html?file=resources/prd-guide.md" class="btn btn-secondary text-xs">Full Guide</a>
+                </div>
+
+                <div class="card-hover bg-card rounded-lg border border-border p-6">
+                    <div class="text-xs text-accent-blue font-semibold mb-2">PLANNING</div>
+                    <h3 class="text-lg font-semibold mb-2">Professional Workflow</h3>
+                    <p class="text-sm text-muted-foreground mb-4">Learn the two-phase approach: plan with any AI, build with Claude Code</p>
+                    <a href="viewer.html?file=resources/professional-workflow.md" class="btn btn-secondary text-xs">Learn More</a>
+                </div>
+
+                <!-- Technology Stack -->
+                <div class="card-hover bg-card rounded-lg border border-border p-6">
+                    <div class="text-xs text-accent-green font-semibold mb-2">TECH STACK</div>
+                    <h3 class="text-lg font-semibold mb-2">Quick Tech Stack</h3>
+                    <p class="text-sm text-muted-foreground mb-4">Essential top 10 technologies to start building - Next.js, Tailwind, Supabase, and more</p>
+                    <a href="viewer.html?file=resources/quick-tech-stack.md" class="btn btn-primary text-xs">Quick Start</a>
+                </div>
+
+                <div class="card-hover bg-card rounded-lg border border-border p-6">
+                    <div class="text-xs text-accent-green font-semibold mb-2">TECH STACK</div>
+                    <h3 class="text-lg font-semibold mb-2">Complete Tech Reference</h3>
+                    <p class="text-sm text-muted-foreground mb-4">Comprehensive guide: frameworks, databases, auth, payments, charts - all rated and explained</p>
+                    <a href="viewer.html?file=resources/tech-stack-reference.md" class="btn btn-secondary text-xs">Browse All</a>
+                </div>
+
+                <div class="card-hover bg-card rounded-lg border border-border p-6">
+                    <div class="text-xs text-accent-green font-semibold mb-2">TECH STACK</div>
+                    <h3 class="text-lg font-semibold mb-2">Claude Code Prompts</h3>
+                    <p class="text-sm text-muted-foreground mb-4">Copy-paste prompts for building forms, auth, payments, and more with Claude Code</p>
+                    <a href="viewer.html?file=resources/claude-code-prompts.md" class="btn btn-primary text-xs">Get Prompts</a>
+                </div>
+
+                <!-- Project Guidance -->
+                <div class="card-hover bg-card rounded-lg border border-border p-6">
+                    <div class="text-xs text-accent-yellow font-semibold mb-2">GUIDANCE</div>
+                    <h3 class="text-lg font-semibold mb-2">Project Selection</h3>
+                    <p class="text-sm text-muted-foreground mb-4">Framework for choosing and scoping your next project realistically</p>
+                    <a href="viewer.html?file=resources/project-selection-template.md" class="btn btn-secondary text-xs">Choose Wisely</a>
+                </div>
+
+                <div class="card-hover bg-card rounded-lg border border-border p-6">
+                    <div class="text-xs text-accent-yellow font-semibold mb-2">GUIDANCE</div>
+                    <h3 class="text-lg font-semibold mb-2">Main Project Guide</h3>
+                    <p class="text-sm text-muted-foreground mb-4">Build ONE project over 5 days - planning, execution, and delivery</p>
+                    <a href="viewer.html?file=resources/main-project-guide.md" class="btn btn-secondary text-xs">Read Guide</a>
+                </div>
+
+                <div class="card-hover bg-card rounded-lg border border-border p-6">
+                    <div class="text-xs text-accent-yellow font-semibold mb-2">GUIDANCE</div>
+                    <h3 class="text-lg font-semibold mb-2">Visual Guides</h3>
+                    <p class="text-sm text-muted-foreground mb-4">Diagrams and visual references for key concepts and workflows</p>
+                    <a href="viewer.html?file=resources/visual-guides-reference.md" class="btn btn-secondary text-xs">View Guides</a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Resources -->
+        <section>
+            <div class="mb-6">
+                <h2 class="text-2xl font-semibold tracking-tight">Resources</h2>
+                <p class="text-sm text-muted-foreground">Quick references and materials</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+
+                <div class="bg-card rounded-lg border border-border p-6">
+                    <h3 class="text-base font-semibold mb-2">Cheat Sheets</h3>
+                    <p class="text-sm text-muted-foreground mb-4">Quick reference guides</p>
+                    <div class="flex flex-col gap-2">
+                        <a href="viewer.html?file=cheat-sheets/cli-commands.md" class="btn btn-secondary text-xs w-full">CLI Commands</a>
+                        <a href="viewer.html?file=cheat-sheets/claude-code-commands.md" class="btn btn-secondary text-xs w-full">Claude Code Commands</a>
+                    </div>
+                </div>
+
+                <div class="bg-card rounded-lg border border-border p-6">
+                    <h3 class="text-base font-semibold mb-2">Examples</h3>
+                    <p class="text-sm text-muted-foreground mb-4">Generic UX/PM project templates</p>
+                    <div class="text-xs text-muted-foreground">Coming soon</div>
+                </div>
+
+                <div class="bg-card rounded-lg border border-border p-6">
+                    <h3 class="text-base font-semibold mb-2">Exercises</h3>
+                    <p class="text-sm text-muted-foreground mb-4">Hands-on practice activities</p>
+                    <div class="text-xs text-muted-foreground">8 exercises available</div>
+                </div>
+
+                <div class="bg-card rounded-lg border border-border p-6">
+                    <h3 class="text-base font-semibold mb-2">Presenter Notes</h3>
+                    <p class="text-sm text-muted-foreground mb-4">Instructor scripts and guidance</p>
+                    <div class="text-xs text-muted-foreground">1 script available</div>
+                </div>
+
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Logo -->
+    <div class="mt-16 mb-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-center">
+                <img src="Asset 1.svg" alt="Logo" class="w-24 h-auto" style="filter: brightness(0) saturate(100%) invert(56%) sepia(33%) saturate(642%) hue-rotate(337deg) brightness(92%) contrast(87%);">
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="border-t border-border mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="text-center text-sm text-muted-foreground">
+                <p class="font-medium mb-1">Workshop Details</p>
+                <p>Duration: 5 days • Format: Remote (MS Teams) • Group Size: 5-10 participants</p>
+                <p class="mt-2 text-xs">Created: January 2026 • Delivery: Late January 2026</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
