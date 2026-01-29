@@ -37,6 +37,27 @@ Today you'll get Claude Code running, create your first project, and push it to 
 - Have idea → Describe it → Get working code → Iterate immediately
 - Build prototypes yourself
 
+### Claude Code vs Other AI Tools
+
+You might have used Claude.ai, ChatGPT, or other AI tools. Claude Code is fundamentally different:
+
+| Aspect | Claude.ai / ChatGPT | Claude Projects | Claude Desktop | Claude Code |
+|--------|---------------------|-----------------|----------------|-------------|
+| **Data Storage** | AI company servers | AI company servers | AI company servers | Your computer (portable) |
+| **File Access** | Manual upload | Manual upload | Manual upload | Automatic |
+| **Memory/Context** | Single chat | Project-level | Project-level | All local files |
+| **Automation** | Limited | Limited | Limited | Slash commands, agents, hooks |
+| **Best For** | Questions & ideas | Team collaboration | General tasks | Building tools & systems |
+
+**The key difference:** Claude Code accesses all your project files automatically and stores all memory, context, and custom shortcuts locally on your machine. This means:
+
+✅ **No copying/pasting** - Claude sees your files automatically
+✅ **Systems that improve** - Create reusable workflows that get better over time
+✅ **Data portability** - Everything stays on your computer, no vendor lock-in
+✅ **Automation** - Build once, reuse hundreds of times
+
+*Learn more: [Why Claude Code?](../resources/why-claude-code.md) | [Teresa Torres on Claude Code](https://www.producttalk.org/claude-code-what-it-is-and-how-its-different/)*
+
 ### What You Can Build (UX/PM Examples)
 
 **Research & Analysis:**
