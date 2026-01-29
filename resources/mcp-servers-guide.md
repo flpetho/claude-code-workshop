@@ -4,7 +4,137 @@
 
 ---
 
-## What Are MCP Servers? (Simple Explanation)
+## Quick Glossary: Terms You'll See
+
+Before diving in, let's define the key terms you'll encounter. **You don't need to memorize these** - just refer back when confused!
+
+### MCP Server
+
+**What it is:** A connection to an external tool or service (like GitHub, Notion, or web search)
+
+**Real-world analogy:** Like installing Spotify app on your phone - one app, one purpose
+
+**UX/PM example:** Install "Brave Search MCP server" to let Claude Code search the web for competitive research
+
+**When you'd use it:** When you need Claude Code to access a specific external service
+
+---
+
+### Plugin
+
+**What it is:** A bundle package that includes multiple MCP servers, slash commands, skills, and hooks working together
+
+**Real-world analogy:** Like installing Microsoft Office (Word + Excel + PowerPoint + templates all in one package)
+
+**UX/PM example:** Install "UX Research Plugin" to get web search + spreadsheet access + custom research commands + file organization - all configured to work together
+
+**When you'd use it:** When you want a complete workflow setup for your team, not just individual tools
+
+---
+
+### Slash Command
+
+**What it is:** A shortcut you type (like `/research-synthesis`) that runs a pre-configured workflow
+
+**Real-world analogy:** Like keyboard shortcuts (⌘+C to copy) - type once instead of explaining the whole task
+
+**UX/PM example:** Type `/competitive-analysis` and Claude automatically:
+- Searches for competitors
+- Analyzes their features
+- Creates comparison table
+- Saves to your research folder
+
+**When you'd use it:** For tasks you repeat often - set up once, run with a single command
+
+---
+
+### Skill
+
+**What it is:** Specialized instructions that tell Claude Code how to approach specific types of tasks
+
+**Real-world analogy:** Like a recipe card - detailed steps for making a specific dish
+
+**UX/PM example:** A "User Research Synthesis" skill that tells Claude Code:
+- How to extract themes from interviews
+- What format to use for quotes
+- How to organize findings
+- What visualizations to create
+
+**When you'd use it:** When you have a specific methodology or framework Claude should follow
+
+---
+
+### Hook
+
+**What it is:** Automation that runs automatically when something happens (like saving a file or committing to git)
+
+**Real-world analogy:** Like "If This Then That" (IFTTT) - automatic actions triggered by events
+
+**UX/PM examples:**
+
+**When you save a file:**
+```
+Hook: "Whenever I save a research note, automatically:
+- Add today's date to the filename
+- Move it to the 'research-notes' folder
+- Update the research index"
+```
+
+**When you commit to git:**
+```
+Hook: "Before every commit, automatically:
+- Check for spelling errors in markdown files
+- Update the project status file
+- Generate a changelog"
+```
+
+**When you create a new project:**
+```
+Hook: "When I create a new project folder, automatically:
+- Set up standard directory structure
+- Create README template
+- Initialize git repository"
+```
+
+**When you'd use it:** When you have repetitive setup/cleanup tasks you want to happen automatically without asking
+
+**Think of hooks as:** Your personal assistant that does routine tasks in the background
+
+---
+
+### Subagent
+
+**What it is:** A specialized version of Claude Code that focuses on one specific task (like testing, research, or code review)
+
+**Real-world analogy:** Like hiring specialists - you wouldn't ask your dentist to fix your car
+
+**UX/PM example:** When analyzing 5 competitors, launch 5 research subagents in parallel:
+- Each subagent analyzes one competitor
+- All work simultaneously
+- Results come back at the same time
+- Consistent analysis framework across all
+
+**When you'd use it:** For parallel work (multiple similar tasks at once) or specialized workflows
+
+---
+
+## Key Takeaway
+
+**You don't need all of these!** Most people start with:
+1. **MCP servers** (individual tools)
+2. **Slash commands** (shortcuts for repeated tasks)
+
+**Later, explore:**
+3. **Hooks** (automation)
+4. **Plugins** (complete bundles)
+5. **Skills** (specialized approaches)
+6. **Subagents** (parallel processing)
+
+**This guide focuses on MCP servers and plugins** since they're the foundation. The others are optional enhancements!
+
+---
+
+## What Are MCP Servers? (Detailed Explanation)
 
 **MCP** stands for **Model Context Protocol** - but you don't need to remember that.
 
@@ -640,7 +770,7 @@ This plugin includes:
 - Google Sheets MCP server (data analysis)
 - Custom /research-synthesis command
 - Custom /competitive-analysis command
-- Research file organization hooks
+- Research file organization hooks (automatic file sorting)
 
 Installing plugin from GitHub repository...
 [Clones plugin repository]
@@ -680,6 +810,42 @@ After restart, try:
 4. Restarted
 
 **Result:** Complete research workflow with multiple tools + custom commands, all configured and working together!
+
+---
+
+### What Are Those "Hooks" Doing?
+
+In this plugin example, the **"Research file organization hooks"** are automations that run in the background:
+
+**Hook 1: When you save a research file**
+```
+Automatically:
+- Add today's date to the filename (research-notes-2026-01-29.md)
+- Move it to the correct folder (by file type)
+- Update your research index file
+```
+
+**Hook 2: When you download competitor screenshots**
+```
+Automatically:
+- Rename with competitor name + date
+- Move to /research/competitors/ folder
+- Create thumbnail version
+```
+
+**Hook 3: When you commit research to git**
+```
+Automatically:
+- Check for personally identifiable information (PII)
+- Warn if sensitive data detected
+- Update research status tracker
+```
+
+**You don't trigger these manually** - they just happen automatically when you do normal work!
+
+**Think of hooks as:** Your personal assistant who organizes your files and keeps things tidy without you asking.
+
+**Most beginners don't need hooks yet** - they're for automating tasks you find yourself doing repeatedly. Start with MCP servers and slash commands first!
 
 ---
 
