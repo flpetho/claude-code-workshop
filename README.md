@@ -1,676 +1,472 @@
 # Claude Code 101 - UX/PM Workshop
 
-**Version 2.0 - Revised Curriculum (January 2026)**
+**5-Day Workshop for Building with AI**
 
-A comprehensive 5-day workshop designed to onboard UX and PM professionals to Claude Code, with focus on hands-on building and realistic project completion.
-
----
-
-## Project Overview
-
-**Target Audience**: UX designers and PM professionals at FamilySearch
-**Duration**: 5 days (1 hour sessions + homework)
-**Format**: Remote via MS Teams
-**Group Size**: 5-10 participants per cohort
-**Focus**: Build ONE working tool throughout the week
+🌐 **Live Site**: https://flpetho.github.io/claude-code-workshop/
+📦 **Repository**: https://github.com/flpetho/claude-code-workshop
+👥 **Audience**: UX/PM professionals at FamilySearch
+📅 **Last Updated**: January 28, 2026
 
 ---
 
-## Recent Changes (v2.0)
+## 📋 Quick Start
 
-### Major Revisions
+### Running Locally
 
-**Workshop Structure:**
-- ✅ Reduced from 10 days to 5 days
-- ✅ Changed from theory-heavy to build-focused
-- ✅ Students build one project all week (not exercises)
-- ✅ Added professional workflow (two-phase planning) on Day 4
-- ✅ Simplified git to 3 commands (add, commit, push)
-- ✅ GitHub-first approach (create repo in browser, paste commands)
+```bash
+# Navigate to project
+cd ~/Sites/projects/claude-code-101
 
-**Content Updates:**
-- ✅ All 5 day modules completely rewritten
-- ✅ Streamlined for 1-hour sessions (was 3 hours)
-- ✅ Removed: agents early, MCP servers, complex git workflows
-- ✅ Added: Professional workflow guide, project selection template
-- ✅ New tone: Supportive, fear-reducing, celebratory
+# Start local server
+python3 -m http.server 8080
 
-**Philosophy Shift:**
-- FROM: Documentation and learning → TO: Building and shipping
-- FROM: Comprehensive coverage → TO: Essential skills only
-- FROM: Advanced features early → TO: Advanced as "next steps"
+# Or using Node.js
+npx http-server -p 8080 -c-1
+
+# View in browser
+open http://localhost:8080
+```
+
+### Making Updates
+
+```bash
+# 1. Edit files locally
+# 2. Test at localhost:8080
+# 3. When ready, commit and push:
+
+git add .
+git commit -m "Description of changes"
+git push
+
+# 4. GitHub Pages auto-deploys in ~2 minutes
+# 5. Check live site: https://flpetho.github.io/claude-code-workshop/
+```
 
 ---
 
-## Project Structure
+## 🗂️ Project Structure
 
 ```
 claude-code-101/
-├── index.html              # Main workshop website (updated)
-├── days/                   # Daily module content (ALL REVISED)
-│   ├── day-01-foundation.md          ← REPLACED (v2.0)
-│   ├── day-02-research.md            ← REPLACED (v2.0)
-│   ├── day-03-design.md              ← REPLACED (v2.0)
-│   ├── day-04-product-tools.md       ← REPLACED (v2.0)
-│   └── day-05-deploy.md              ← REPLACED (v2.0)
-├── exercises/              # Hands-on practice (keep existing)
+├── index.html                    # Main workshop website
+├── viewer.html                   # Markdown content viewer
+├── social-share.png              # Social media preview image
+├── .nojekyll                     # GitHub Pages config
+│
+├── days/                         # Workshop modules (5 days)
+│   ├── day-01-foundation.md
+│   ├── day-02-research.md
+│   ├── day-03-design.md
+│   ├── day-04-product-tools.md
+│   └── day-05-deploy.md
+│
+├── exercises/                    # Hands-on practice
 │   ├── day-01-portfolio-setup.md
 │   ├── day-02-research-dashboard.md
 │   ├── day-03-prototype.md
 │   ├── day-04-competitive-intel.md
 │   └── day-05-toolkit.md
-├── resources/              # Reference materials
-│   ├── installation-reference.md     (existing - good)
-│   ├── github-setup.md               (existing - good)
-│   ├── git-cheatsheet.md             (existing - good)
-│   ├── main-project-guide.md         (existing - good)
-│   ├── professional-workflow.md      ← NEW (v2.0)
-│   ├── project-selection-template.md ← NEW (v2.0)
-│   └── visual-guides-reference.md    ← NEW (v2.0)
+│
+├── resources/                    # Reference materials
+│   ├── installation-reference.md          # AWS Bedrock setup
+│   ├── simple-github-setup.md             # GitHub for beginners
+│   ├── git-cheatsheet.md                  # Quick git reference
+│   ├── main-project-guide.md              # 5-day project guide
+│   ├── professional-workflow.md           # Two-phase approach
+│   ├── project-selection-template.md      # Choosing projects
+│   ├── prd-guide.md                       # Complete PRD system
+│   ├── quick-prd-template.md              # One-page PRD
+│   ├── tech-stack-reference.md            # Complete tech guide
+│   ├── quick-tech-stack.md                # Top 10 technologies
+│   ├── claude-code-prompts.md             # Copy-paste prompts
+│   └── visual-guides-reference.md         # Visual asset specs
+│
+├── resources/img/               # Images
+│   ├── cc-logo.svg
+│   ├── homebrew.png
+│   └── workforceapp.png
+│
 ├── scripts/
-│   └── workshop-init-project.sh      (existing - good)
-├── archive/                # Old content (for reference)
-│   └── 10-day-version/     ← MOVE OLD FILES HERE
-│       ├── days/           (old day-*.md files)
-│       └── README.md       (explanation of archive)
-├── appendix/               # Advanced topics (existing - keep)
-│   ├── installation-guides.md
+│   └── workshop-init-project.sh          # Project setup script
+│
+├── cheat-sheets/               # Quick references
+│   ├── cli-commands.md
+│   └── claude-code-commands.md
+│
+├── presenter-notes/            # Instructor guides
+│   └── day-01-script.md
+│
+├── appendix/                   # Advanced topics
 │   ├── advanced-features.md
+│   ├── installation-guides.md
 │   └── orchestration-system.md
-├── visuals/                ← NEW FOLDER (to be created)
-│   └── (visual assets go here)
-├── css/                    # Website styling
-├── js/                     # Website functionality
-├── README.md               # This file
-└── IMPLEMENTATION-SUMMARY.md (existing - update with v2.0 notes)
+│
+├── archive/                    # Old content
+│   └── 10-day-version/        # Original 10-day curriculum
+│
+└── revisions/                  # Working drafts
+    └── 20260128/              # Latest revisions
 ```
 
 ---
 
-## Website Structure (index.html)
+## 🎯 What This Workshop Covers
 
-### Current Sections
+### 5-Day Structure
 
-1. **Header**
-   - Title: "Claude Code 101 - UX/PM Workshop"
-   - Subtitle: "5-Day Workshop • January 2026"
+**Day 1: Foundation + Project Setup**
+- IDE setup (VSCode, Cursor, Antigravity)
+- GitHub workflow
+- Choose and start your project
 
-2. **Getting Started** (3 cards)
-   - Installation Reference
-   - Project Setup Script
-   - Git/GitHub Setup
+**Day 2: Research Intelligence**
+- Data processing
+- Visualizations
+- Working session
 
-3. **5-Day Workshop** (5 cards)
-   - Day 1: Foundation + Project Setup
-   - Day 2: Research Intelligence
-   - Day 3: Design Tools & Prototypes
-   - Day 4: Product Tools & Polish
-   - Day 5: Deploy & Ship
+**Day 3: Design Tools & Prototypes**
+- Custom slash commands
+- Interactive elements
+- Polish features
 
-4. **Resources** (current cheat sheets)
-   - CLI Commands
-   - Claude Code Commands
+**Day 4: Polish & Professional Workflow**
+- Two-phase planning approach
+- Professional techniques
+- Project refinement
 
-5. **Footer**
-   - Workshop details
-   - Created date
+**Day 5: Deploy & Ship**
+- Deploy to GitHub Pages
+- Present to team
+- Celebrate success
 
-### Needed Updates to index.html
+### Key Philosophy
 
-**Add new "After Workshop" section:**
+✅ **Build ONE project** over 5 days (not separate exercises)
+✅ **Git through Claude Code** (natural language, not manual commands)
+✅ **IDE-focused** (visual feedback, integrated terminal)
+✅ **Fear reduction** ("you won't break your computer")
+✅ **Real projects** (FamilySearch tools or UX/PM productivity)
+
+---
+
+## 🚀 Deployment
+
+### GitHub Pages Setup (Already Done)
+
+This site is configured for GitHub Pages:
+
+1. **Repository**: https://github.com/flpetho/claude-code-workshop
+2. **Settings** → **Pages** → Deploy from `main` branch
+3. **Live URL**: https://flpetho.github.io/claude-code-workshop/
+4. **Auto-deploys** on every push to `main` (~1-2 minutes)
+
+### Making Updates Go Live
+
+```bash
+# Make your changes locally
+# Test at localhost:8080
+
+# When ready:
+git add .
+git commit -m "Your change description"
+git push
+
+# GitHub Pages automatically rebuilds
+# Live in 1-2 minutes!
+```
+
+### Monitoring Deployments
+
+Check deployment status:
+1. Go to https://github.com/flpetho/claude-code-workshop
+2. Click **Actions** tab
+3. See "pages build and deployment" runs
+4. Green checkmark = live ✅
+
+---
+
+## 📝 Key Files Explained
+
+### Website Files
+
+**`index.html`**
+- Main landing page
+- Navigation to all modules
+- "Getting Started", "5-Day Workshop", "After Workshop" sections
+- Uses Tailwind CSS for styling
+- Responsive design
+
+**`viewer.html`**
+- Renders markdown files
+- Syntax highlighting for code
+- Table of contents generation
+- Used by all content links
+
+**`social-share.png`**
+- 875×554px image
+- Shows when link is shared (iMessage, Slack, LinkedIn, etc.)
+- Features CLAUDE CODE ASCII art
+
+### Content Files
+
+**`days/*.md`**
+- Daily module content
+- 1-hour format (teaching + hands-on)
+- Supportive tone for beginners
+- Includes troubleshooting
+
+**`resources/*.md`**
+- Reference guides and templates
+- Post-workshop learning materials
+- Planning tools (PRD, tech stack)
+- Copy-paste prompts
+
+### Configuration Files
+
+**`.nojekyll`**
+- Tells GitHub Pages not to use Jekyll
+- Ensures proper file serving
+
+**`.gitignore`**
+- Excludes .DS_Store and backup files
+- Keeps repo clean
+
+---
+
+## 🛠️ Common Tasks
+
+### Adding a New Resource
+
+1. Create markdown file in `resources/`
+2. Add link in `index.html` "After Workshop" section
+3. Test locally
+4. Commit and push
 
 ```html
-<section class="after-workshop">
-  <h2>After Workshop: Level Up</h2>
-  <p class="section-intro">Ready for advanced techniques? These resources help you build at professional level.</p>
-  
-  <div class="resource-grid">
-    <div class="resource-card">
-      <h3>Professional Workflow</h3>
-      <p>Learn the two-phase planning approach for 10x better results</p>
-      <a href="/viewer?file=resources/professional-workflow.md" class="btn-primary">Learn More</a>
-    </div>
-    
-    <div class="resource-card">
-      <h3>Project Selection Template</h3>
-      <p>Framework for choosing and scoping your next project</p>
-      <a href="/viewer?file=resources/project-selection-template.md" class="btn-primary">Download Template</a>
-    </div>
-    
-    <div class="resource-card">
-      <h3>Visual Guides</h3>
-      <p>Diagrams and visual references for key concepts</p>
-      <a href="/viewer?file=resources/visual-guides-reference.md" class="btn-primary">View Guides</a>
-    </div>
-  </div>
-</section>
+<!-- Add to index.html -->
+<div class="card-hover bg-card rounded-lg border border-border p-6">
+    <h3 class="text-lg font-semibold mb-2">New Resource Title</h3>
+    <p class="text-sm text-muted-foreground mb-4">Description here</p>
+    <a href="viewer.html?file=resources/new-resource.md" class="btn btn-primary text-xs">Read More</a>
+</div>
 ```
 
-**Update workshop day descriptions to match new content:**
+### Updating a Day Module
 
-- Day 1: "Professional setup, Git/GitHub basics, first tool" → "Project setup, GitHub workflow, choose your project"
-- Day 2: "Build research dashboards, parallel processing" → "Data processing, visualizations, working session"
-- Day 3: "From specs to clickable prototypes" → "Custom slash commands, interactive elements"
-- Day 4: "Build analysis tools and dashboards" → "Professional workflow, polish your project"
-- Day 5: "Build toolkit, deploy to GitHub Pages" → "Deploy to web, present to team"
+1. Edit the file in `days/`
+2. Test at `localhost:8080/viewer.html?file=days/day-01-foundation.md`
+3. Commit with descriptive message
+4. Push to deploy
 
----
+### Adding an Image
 
-## Content Guidelines for Claude Code
-
-### When Working on Day Modules (days/*)
-
-**Audience**: UX/PM professionals, may be new to terminal/IDEs
-**Workspace**: Recommend IDE with integrated terminal (VSCode, Cursor, Antigravity)
-**Tone**: Friendly, encouraging, fear-reducing, celebratory
-**Approach**: Hands-on over theory, building over reading
-**Git**: Always through Claude Code commands, not manual git
-
-**Structure each day includes:**
-- Duration and format (always 1 hour total)
-- Learning objectives (3-5)
-- Check-in section (10 min)
-- Quick teaching (10-20 min)
-- Working session (25-40 min)
-- Wrap-up (5 min)
-- Homework (45-60 min)
-
-**Key Principles:**
-- Start with "Welcome back!" energy
-- Recommend IDE with visual file explorer
-- All git commits through Claude Code (not manual commands)
-- Include troubleshooting sections
-- Add "Minimum/Target/Stretch" goals framework
-- Use FamilySearch/genealogy examples
-- Assume they're building ONE project all week
-- Commit to GitHub after each session (via Claude Code)
-
-**Length**: 2,000-3,000 words per day (not 4,500+ like old version)
-
-**Include:**
-- Real examples from UX/PM work
-- IDE setup guidance (not just terminal)
-- Claude Code commands (not raw git commands)
-- "What could go wrong" sections
-- Celebration of progress
-
-**Avoid:**
-- Assuming terminal comfort
-- Teaching manual git commands
-- Dense technical jargon without explanation
-- Long unbroken paragraphs
-- Assumptions about prior knowledge
-- Discouraging language
+1. Add image to `resources/img/`
+2. Reference in markdown: `![Alt text](resources/img/filename.png)`
+3. Path is relative to website root
+4. Commit and push
 
 ---
 
-### When Working on Exercises (exercises/*)
+## 📊 What Was Accomplished (Jan 28, 2026)
 
-**Format**: Step-by-step instructions with clear outcomes
-**Structure**:
-- Prerequisites clearly stated
-- Steps numbered and detailed
-- Expected outcomes shown
-- Troubleshooting included
-- Extension challenges for fast learners
+### Major Updates
 
-**Must include:**
-- Time estimates for each task
-- Deliverables checklist
-- Success criteria (minimum/target/stretch)
-- Git commit reminders
-- Links to relevant day module
+✅ **Restructured from 10 days to 5 days**
+- More realistic for busy professionals
+- Project-focused (build ONE tool)
+- Each day = complete milestone
 
----
+✅ **Added 6 new comprehensive resources**
+- Quick PRD Template (one-page planning)
+- Complete PRD Guide (interview system)
+- Quick Tech Stack (top 10 essentials)
+- Complete Tech Stack Reference (100+ technologies)
+- Claude Code Prompts (copy-paste library)
+- Professional Workflow (two-phase approach)
 
-### When Working on Resources (resources/*)
+✅ **Updated Git/GitHub approach**
+- Simplified to: create repo → tell Claude Code to commit
+- Manual git commands → natural language
+- Removed git config step (Claude Code handles automatically)
 
-**Purpose**: Quick reference and post-workshop learning
-**Types**:
-1. **Quick references** (cheat sheets) - Single page, printable
-2. **Setup guides** (installation, github) - Step-by-step with screenshots
-3. **Advanced guides** (professional workflow) - Comprehensive, for after workshop
-4. **Templates** (project selection) - Fill-in-the-blank frameworks
+✅ **Installation guide for FamilySearch**
+- AWS Bedrock-specific setup
+- Workforce App Store images
+- Homebrew setup visuals
+- Environment variables documented
 
-**Format**:
-- Clear headers and sections
-- Visual hierarchy (use markdown effectively)
-- Actionable steps
-- Examples throughout
-- Links to related resources
+✅ **Website enhancements**
+- "After Workshop: Level Up" section with 8 resources
+- Main Project Guide in 5-Day Workshop section
+- Organized by category (Planning, Tech Stack, Guidance)
+- Social share meta tags for link previews
 
----
+✅ **GitHub Pages deployment**
+- Live at: https://flpetho.github.io/claude-code-workshop/
+- Auto-deploys on push
+- Social share image configured
+- No custom domain issues
 
-## Workshop Philosophy (v2.0)
+### Files Created Today
 
-### Core Principles
+**New Resources:**
+- `resources/quick-prd-template.md`
+- `resources/quick-tech-stack.md`
+- `resources/claude-code-prompts.md`
 
-**1. Building > Documentation**
-- Students build actual working tools, not just learn concepts
-- One project developed progressively over 5 days
-- Deploy to internet by Day 5
+**Updated:**
+- `resources/installation-reference.md` (AWS Bedrock setup)
+- `resources/simple-github-setup.md` (removed manual git config)
+- `resources/prd-guide.md` (Claude Code integration)
+- `resources/tech-stack-reference.md` (updated date, Claude Code context)
+- `days/day-01-foundation.md` (IDE explanation)
+- `days/day-04-product-tools.md` (resource links)
+- `days/day-05-deploy.md` (resource links)
+- `index.html` (After Workshop section, Main Project Guide card)
+- `social-share.png` (link preview image)
 
-**2. Context = Quality**
-- Day 4 introduces professional two-phase workflow
-- Planning phase (any AI) → Building phase (Claude Code)
-- Not required for workshop, but shown as "level up"
+### Commits Today
 
-**3. Git Simplified**
-- GitHub.com first (visual, familiar)
-- Create repo in browser, paste commands from GitHub
-- Daily: git add . → git commit -m → git push
-- Claude Code can do git commands for them
-
-**4. Fear Reduction**
-- "You won't break your computer" messaging
-- Minimum goals everyone can achieve
-- Troubleshooting everywhere
-- Supportive language throughout
-
-**5. Real Projects**
-- Students choose what to build (FamilySearch tools or UX/PM productivity)
-- Must solve actual problem they have
-- Will use after workshop
-
----
-
-## Key Concepts (for Claude Code understanding)
-
-### The Two-Phase Workflow
-
-**Introduced on Day 4 as "professional approach"**
-
-**Phase 1: Planning** (any AI agent)
-- Claude Desktop, ChatGPT, Gemini, etc.
-- Create planning documents
-- Make technical decisions
-- Design architecture
-
-**Phase 2: Building** (Claude Code)
-- Read planning docs
-- Build according to specs
-- Higher quality output
-
-**Why teach this?**
-- Shows progression: simple → professional
-- Respects workshop = basics
-- Offers growth path post-workshop
-- Introduces instructor's actual workflow
-
-**Resources:**
-- Full guide: `resources/professional-workflow.md`
-- Advanced system: `appendix/orchestration-system.md`
-- Not required for workshop completion
+Total commits: 10
+- Initial commit with all workshop content
+- Added installation images
+- Integrated PRD and tech stack resources
+- Updated GitHub setup guide
+- Styled Main Project Guide card
+- Configured social share meta tags
+- Fixed GitHub Pages deployment
 
 ---
 
-### Project-Focused Learning
+## 🎨 Design System
 
-**Students build ONE tool all week:**
+### Colors
 
-**Day 1**: Choose project, setup, basic structure
-**Day 2**: Add data processing/visualization
-**Day 3**: Add interactivity + custom commands
-**Day 4**: Polish + optional power feature
-**Day 5**: Deploy + present
+- **Primary Orange**: `#D17D59`
+- **Dark Background**: `#262624`
+- **Card Background**: `#2e2e2c`
+- **Border**: `hsl(240 3.7% 15.9%)`
+- **Foreground**: `hsl(0 0% 98%)`
 
-**Project types:**
-- FamilySearch/genealogy tools (citation generator, research tracker)
-- UX/PM productivity (meeting analyzer, competitive dashboard)
+### Typography
 
-**Scoping:**
-- 1 core feature (essential)
-- 2-3 supporting features (enhancements)
-- Future improvements (post-workshop)
+- **Font Family**: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif
+- **Heading Sizes**: 2xl (32px), xl (24px), lg (18px)
+- **Body**: 14px (sm)
 
-**Template:** `resources/project-selection-template.md`
+### Buttons
 
----
-
-### Git/GitHub Approach
-
-**Philosophy: Let Claude Code handle git**
-
-**Workshop approach:**
-1. Create GitHub account (if don't have one)
-2. Create repo on github.com (visual, comfortable)
-3. GitHub shows commands to connect repo
-4. Copy commands, paste them into Claude Code session
-5. **From then on:** Just tell Claude Code "commit and push my changes"
-
-**Daily workflow:**
-```
-You → "Commit my changes with message 'Added feature X' and push to GitHub"
-Claude Code → Handles git commands automatically
-Result → Code safely on GitHub
-```
-
-**Why this works:**
-- Students don't leave Claude Code session
-- No terminal switching
-- No memorizing git commands
-- Claude Code is already in terminal
-- Makes git invisible/automatic
-
-**Setup coverage:**
-- Creating GitHub account (brief)
-- Creating repository (visual on website)
-- Initial connection (copy/paste from GitHub)
-- Daily commits (just ask Claude Code)
-
-**No coverage of:**
-- Manual git commands (Claude Code handles)
-- Complex branching (optional only)
-- Pull requests (mentioned, not required)
-- Merge conflicts (instructor helps if occurs)
-- Git internals (unnecessary for UX/PM)
-
-**Post-workshop:**
-- `resources/git-cheatsheet.md` for those who want to learn
-- Most will happily let Claude Code handle it forever!
+- **Primary**: Orange background, dark text
+- **Secondary**: Gray background, white text
+- **Hover**: Slight color shift, smooth transition
 
 ---
 
-## File Integration Instructions
+## 🔧 Technical Details
 
-### Step 1: Archive Old Content
+### Technologies Used
 
-**Create archive folder:**
-```bash
-mkdir -p archive/10-day-version/days
-```
+- **HTML/CSS/JavaScript**: Static website
+- **Tailwind CSS**: Utility-first styling (via CDN)
+- **Marked.js**: Markdown rendering
+- **Highlight.js**: Code syntax highlighting
+- **GitHub Pages**: Free hosting
+- **Custom domain**: Previously rebeccalaszlo.com (removed)
 
-**Move old day modules:**
-```bash
-mv days/day-01-welcome.md archive/10-day-version/days/
-mv days/day-02-cli.md archive/10-day-version/days/
-mv days/day-03-first-session.md archive/10-day-version/days/
-# ... (all old day files)
-```
+### Browser Compatibility
 
-**Create archive README:**
-```markdown
-# 10-Day Workshop Archive
+- Chrome/Edge (latest)
+- Safari (latest)
+- Firefox (latest)
+- Mobile browsers (responsive design)
 
-This folder contains the original 10-day workshop curriculum.
+### Performance
 
-**Why archived?**
-- Revised to 5-day format (more realistic)
-- Changed to project-focused (vs exercise-focused)
-- Simplified for UX/PM audience
-- Updated with professional workflow
-
-**For reference only** - Use v2.0 content in main folders.
-
-Archived: January 2026
-```
+- Lightweight (no build step)
+- Fast loading (CDN resources)
+- Markdown files load on demand
+- No JavaScript framework overhead
 
 ---
 
-### Step 2: Add New Day Modules
+## 🐛 Troubleshooting
 
-**Replace all 5 day files in days/ folder:**
-
-- `day-01-foundation.md` - REPLACE with revised version
-- `day-02-research.md` - REPLACE with revised version
-- `day-03-design.md` - REPLACE with revised version
-- `day-04-product-tools.md` - REPLACE with revised version
-- `day-05-deploy.md` - REPLACE with revised version
-
-**Verify formatting:**
-- Markdown renders correctly
-- Internal links work
-- Code blocks display properly
-- Headers create proper hierarchy
-
----
-
-### Step 3: Add New Resources
-
-**Add to resources/ folder:**
-
-1. `professional-workflow.md` - Comprehensive guide to two-phase approach
-2. `project-selection-template.md` - Framework for choosing projects
-3. `visual-guides-reference.md` - Specifications for creating visual aids
-
-**Keep existing resources:**
-- `installation-reference.md` (already good)
-- `github-setup.md` (already good)
-- `git-cheatsheet.md` (already good)
-- `main-project-guide.md` (already good)
-
----
-
-### Step 4: Update index.html
-
-**Changes needed:**
-
-1. **Update day card descriptions** to match new content
-2. **Add "After Workshop" section** with 3 new resource cards
-3. **Update footer** if needed (copyright year, etc.)
-
-**Test after updating:**
-- All viewer links work (`/viewer?file=path/to/file.md`)
-- Cards display properly
-- Navigation flows logically
-- Mobile responsive still works
-
----
-
-### Step 5: Create Visuals Folder
-
-**Create new folder:**
-```bash
-mkdir -p visuals
-```
-
-**Will eventually contain:**
-- git-workflow.png
-- project-structure.png
-- context-pyramid.png
-- github-pages-flow.png
-- two-phase-comparison.png
-- command-structure.png
-- etc.
-
-**Reference:** `resources/visual-guides-reference.md` has specifications
-
----
-
-### Step 6: Update IMPLEMENTATION-SUMMARY.md
-
-**Add section for v2.0 changes:**
-
-```markdown
-## Version 2.0 Updates (January 2026)
-
-### Major Changes
-- Restructured from 10-day to 5-day format
-- All day modules completely rewritten
-- Added professional workflow guide
-- Simplified git approach
-- Project-focused learning
-
-### New Files
-- resources/professional-workflow.md
-- resources/project-selection-template.md
-- resources/visual-guides-reference.md
-- archive/10-day-version/ (old content)
-
-### Philosophy Changes
-- Build > Document
-- GitHub-first approach
-- Fear reduction focus
-- One project all week
-- Advanced content = "next steps"
-
-### Status
-- ✅ Content complete
-- ⏳ Visuals in progress
-- ⏳ Pilot testing pending
-- ⏳ Launch planned
-```
-
----
-
-## Testing Checklist
-
-After integration, verify:
-
-**Content:**
-- [ ] All 5 day modules display correctly
-- [ ] New resources load properly
-- [ ] Links between documents work
-- [ ] Code blocks format correctly
-- [ ] Images display (when added)
-
-**Website:**
-- [ ] Navigation updated
-- [ ] New section displays
-- [ ] Mobile responsive
-- [ ] All links functional
-- [ ] No console errors
-
-**Structure:**
-- [ ] Old content archived
-- [ ] New content in place
-- [ ] Folder structure clean
-- [ ] README accurate
-
-**Accessibility:**
-- [ ] Proper heading hierarchy
-- [ ] Alt text on images (when added)
-- [ ] Readable font sizes
-- [ ] Good color contrast
-
----
-
-## Development Commands
+### Local Server Won't Start
 
 ```bash
-# Start local server to view website
-python3 -m http.server 8080
+# Try different port
+python3 -m http.server 8081
 
-# Open in browser
-open http://localhost:8080
-
-# Check for broken links (if using link checker)
-linkchecker http://localhost:8080
-
-# Validate markdown (if using validator)
-markdownlint days/*.md resources/*.md
+# Or use Node.js
+npx http-server -p 8081
 ```
 
----
+### Changes Not Showing on Live Site
 
-## Working with Claude Code on This Project
+1. Check GitHub Actions for deployment status
+2. Wait 2-3 minutes for build to complete
+3. Clear browser cache: `Cmd + Shift + R`
+4. Try incognito window
 
-### Common Tasks
+### Social Share Image Not Updating
 
-**Updating day modules:**
-```
-"Update day-02-research.md following the structure in this README.
-Keep it to 2,500 words, use supportive tone, include troubleshooting,
-and make it hands-on focused."
-```
+1. Check file exists: `social-share.png` in root
+2. File size should be ~25KB
+3. Clear social media cache:
+   - Facebook: https://developers.facebook.com/tools/debug/
+   - LinkedIn: https://www.linkedin.com/post-inspector/
 
-**Adding new resources:**
-```
-"Create a cheat sheet for [topic] following the format in 
-resources/git-cheatsheet.md - keep it single page and printable."
-```
+### Git Push Fails
 
-**Updating website:**
-```
-"Add a new section to index.html for 'After Workshop' resources.
-Follow the existing card-grid pattern and link to the three new
-resources in resources/ folder."
-```
-
-**Creating visuals:**
-```
-"Based on visual-guides-reference.md, create detailed specifications
-for the git-workflow diagram that a designer can implement."
-```
-
----
-
-## Style Guide
-
-### Writing Style
-
-**Voice:**
-- Friendly and encouraging
-- Professional but not corporate
-- Specific and concrete
-- Action-oriented
-
-**Tone Examples:**
-
-✅ **Good:**
-- "Let's build something!"
-- "You've got this!"
-- "Here's what you accomplished today"
-- "Don't worry if this feels new"
-
-❌ **Avoid:**
-- "As previously mentioned in Section 2.3..."
-- "Users should be aware that..."
-- "It is recommended that participants..."
-- "One might consider..."
-
-### Code Formatting
-
-**Commands:**
 ```bash
-# Always show full command
-git add .
-git commit -m "Add feature"
+# Check remote
+git remote -v
 
-# Include expected output when helpful
-$ claude --version
-claude-code version 2.0.0
+# Should show:
+# origin  https://github.com/flpetho/claude-code-workshop.git
+
+# If different, update:
+git remote set-url origin https://github.com/flpetho/claude-code-workshop.git
 ```
 
-**File paths:**
-- Use forward slashes: `path/to/file.md`
-- Show from project root: `~/Sites/projects/my-project/`
-- Use placeholders: `your-project-name`
+---
 
-**Examples:**
-- Use realistic data (not "test" or "asdf")
-- FamilySearch/genealogy context
-- UX/PM work scenarios
+## 📚 Additional Documentation
+
+### Workshop-Related
+
+- **CLAUDE.md**: Project instructions for Claude Code
+- **IMPLEMENTATION-SUMMARY.md**: Implementation plan
+- **V2-UPDATES-APPLIED.md**: v2.0 integration notes
+- **V2-INTEGRATION-COMPLETE.md**: Revision summary
+
+### For Participants
+
+All content is accessible through the website:
+- Getting Started guides
+- 5-day modules
+- Exercises
+- Resource library
+- After Workshop materials
+
+### For Instructors
+
+- `presenter-notes/day-01-script.md`
+- Archive folder has old 10-day content for reference
+- Appendix has advanced topics
 
 ---
 
-## Key Principles
+## 🎯 Success Metrics
 
-### For Claude Code Working on This Repo
-
-1. **Maintain supportive tone** - This is for people learning something new
-2. **Be specific** - "Click here" not "navigate to the interface"
-3. **Show, don't tell** - Code examples over explanations
-4. **Assume beginners** - Explain terminal, git, everything
-5. **Celebrate progress** - Every session ends on high note
-6. **Build confidence** - Minimum goals achievable by all
-7. **Reduce fear** - "You won't break your computer"
-8. **Real projects** - FamilySearch and UX/PM examples
-9. **Context matters** - Explain the "why" not just "how"
-10. **Keep it moving** - 1-hour sessions, no fluff
-
----
-
-## Success Metrics
-
-### Workshop Completion
+### Workshop Goals
 
 **Participants should:**
-- Complete all 5 sessions
-- Build one working tool
-- Deploy to GitHub Pages
-- Present on Day 5
-- Feel confident to continue
+- ✅ Complete all 5 sessions
+- ✅ Build one working tool
+- ✅ Deploy to GitHub Pages
+- ✅ Present on Day 5
+- ✅ Feel confident to continue
 
 **Target rates:**
 - 90%+ attendance
@@ -680,62 +476,104 @@ claude-code version 2.0.0
 
 ---
 
-## Contact & Support
+## 📞 Support & Contact
 
-**Workshop Instructor:** [Your contact info]
-**FamilySearch Slack:** #claude-code
-**Repository:** [GitHub URL]
-**Website:** https://claudecode101.netlify.app/
-
----
-
-## Timeline
-
-**Current Status:** Content complete (v2.0)
-
-**Next Steps:**
-1. Integrate content (this phase)
-2. Create priority visuals
-3. Technical testing
-4. Pilot workshop
-5. Launch to full audience
-
-**Target Launch:** 3-4 weeks from now
+**Repository**: https://github.com/flpetho/claude-code-workshop
+**Live Site**: https://flpetho.github.io/claude-code-workshop/
+**FamilySearch Slack**: #claude-code
+**Workshop Delivery**: Late January 2026
 
 ---
 
-## Version History
+## 🔄 Version History
 
-**v2.0** (January 2026)
-- Complete curriculum revision
-- 10-day → 5-day restructure
-- Project-focused approach
-- Professional workflow added
-- Git simplified
+**v2.0** (January 28, 2026) - **CURRENT**
+- Complete 5-day curriculum
+- Project-focused learning
+- IDE-first approach
+- Git through Claude Code
+- 6 new planning/tech resources
+- Live on GitHub Pages
 
 **v1.0** (December 2024)
 - Initial 10-day curriculum
-- Theory and exercises
-- Comprehensive but long
+- Exercise-focused
+- Archived for reference
 
 ---
 
-## Additional Documentation
+## ⚡ Quick Commands Reference
 
-- **Implementation Plan:** See `IMPLEMENTATION-SUMMARY.md` for v2.0 rollout
-- **Advanced Topics:** See `appendix/` for post-workshop content
-- **Original Content:** See `archive/10-day-version/` for reference
-- **Visual Specs:** See `resources/visual-guides-reference.md`
+```bash
+# Development
+python3 -m http.server 8080        # Start local server
+open http://localhost:8080         # Open in browser
+
+# Git workflow
+git status                         # Check changes
+git add .                          # Stage all changes
+git commit -m "message"            # Commit with message
+git push                           # Deploy to GitHub Pages
+
+# Check deployment
+# Visit: https://github.com/flpetho/claude-code-workshop/actions
+
+# View live site
+open https://flpetho.github.io/claude-code-workshop/
+```
 
 ---
 
-**Ready to build!** This workshop will transform how UX/PM professionals use AI tools.
+## 💡 Working with Claude Code on This Project
 
-**Let's ship it!** 🚀
+When you return to this project, you can ask Claude Code:
+
+```
+"Update day-02-research.md to add a new section about X.
+Follow the supportive tone and include code examples."
+
+"Add a new resource card to index.html for Y.
+Put it in the 'After Workshop' section, use the existing card pattern."
+
+"Create a new quick reference guide for Z in resources/.
+Keep it one-page, printable, and beginner-friendly."
+
+"Review the website at localhost:8080 and suggest improvements."
+```
+
+Claude Code has full context from this README and CLAUDE.md!
+
+---
+
+## ✅ Next Steps
+
+**Immediate (if needed):**
+- [ ] Test all links on live site
+- [ ] Verify social sharing in multiple apps
+- [ ] Review content for typos
+
+**Before workshop delivery:**
+- [ ] Pilot test with 2-3 participants
+- [ ] Gather feedback and adjust
+- [ ] Create participant welcome email
+- [ ] Set up Slack channel
+
+**Future enhancements:**
+- [ ] Add video walkthroughs
+- [ ] Create example projects
+- [ ] Build alumni showcase
+- [ ] Expand resource library
+
+---
+
+**The workshop is ready to ship! 🚀**
+
+Everything is documented, deployed, and ready for participants.
+
+**Happy teaching!**
 
 ---
 
 *Last Updated: January 28, 2026*
-*Version: 2.0*
-*Status: Content Complete, Ready for Integration*
-# Update to trigger rebuild
+*Status: Production Ready*
+*Built with Claude Code assistance*
