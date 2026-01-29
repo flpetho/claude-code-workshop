@@ -338,6 +338,106 @@ Total commits: 10
 
 ---
 
+## 📊 What Was Accomplished (Jan 29, 2026)
+
+### Major Updates
+
+✅ **Added Teresa Torres insights on Claude Code**
+- Integrated content from Product Talk article
+- Comparison table (Claude Code vs Claude.ai/Projects/Desktop)
+- Key differentiators: data portability, automation, file access
+- Updated Day 1 module with comparison table
+
+✅ **Created comprehensive MCP Servers & Plugins guide**
+- New resource: `resources/mcp-servers-guide.md` (900+ lines)
+- Beginner-friendly explanations for non-technical users
+- "Apps for Claude Code" analogy for accessibility
+- Clear distinction between MCP servers (individual tools) and plugins (bundles)
+
+✅ **Added complete technical glossary**
+- Defines 6 key terms: MCP Server, Plugin, Slash Command, Skill, Hook, Subagent
+- Each term includes: definition, analogy, UX/PM example, when to use
+- Concrete hook examples (file organization, git commits, project setup)
+- Removes intimidation by explaining all technical terms upfront
+
+✅ **Emphasized Claude Code automation**
+- Shows exactly what Claude Code handles automatically (installation, configuration, troubleshooting)
+- Users only need to: get API keys, restart, provide intent
+- 11 ready-to-use installation prompts (copy-paste)
+- Real conversation examples showing hands-off process
+
+✅ **Curated 12+ directories for exploration**
+- Official: Anthropic plugins, MCP documentation
+- Community: Claude Directory, Awesome Claude Code, Plugin Hub
+- Best-of lists: 50+ best MCP servers, top 10 essentials
+- Learning: Scott Spence guides, Composio tutorials, IntuitionLabs comparisons
+- Each resource tagged with "Best for" use case
+
+✅ **Website updates**
+- Replaced "Presenter Notes" with "MCP Servers & Plugins" in Resources section
+- Repositioned next to Cheat Sheets
+- Updated "Examples" and "Exercises" to "Coming soon"
+- Added "Why Claude Code?" card to After Workshop section
+
+### Files Created/Updated
+
+**New Resources:**
+- `resources/why-claude-code.md` - Teresa Torres insights, Claude Code value proposition
+- `resources/mcp-servers-guide.md` - Comprehensive MCP/plugin guide with glossary
+
+**Updated:**
+- `days/day-01-foundation.md` - Added comparison table, Teresa Torres reference
+- `index.html` - Resources section reorganization, new cards
+- `README.md` - This file, documenting Jan 29 updates
+
+### Key Content Highlights
+
+**MCP Servers Guide includes:**
+- Quick glossary (6 technical terms explained)
+- MCP vs Plugin comparison (with real examples)
+- "Claude Code installs them FOR you" emphasis
+- 11 copy-paste installation prompts organized by category
+- Popular servers for UX/PM work (2 tables with use cases)
+- 12 curated directories with "Best for" descriptions
+- Real installation examples (MCP server + plugin)
+- 3 concrete hook examples explained
+- Common questions (10 MCP + 5 plugin FAQs)
+- Plugin creation guide for teams
+- Advanced topics (building custom MCP servers)
+
+**Why Claude Code resource includes:**
+- Core difference: question-answering vs AI-powered systems
+- Comparison table across 4 AI access points
+- 3 strategic advantages (eliminate repetition, scalable automation, parallel processing)
+- Teresa Torres competitive analysis example
+- Data portability and vendor independence
+- When to use each tool (decision framework)
+- Before/after examples for product teams
+- Compound effect explanation
+
+### Commits Today
+
+Total commits: 5
+- Added Teresa Torres insights on Why Claude Code
+- Created beginner-friendly MCP Servers & Plugins guide
+- Emphasized Claude Code automates MCP server installation
+- Added comprehensive plugin vs MCP server explanation and resources
+- Added comprehensive glossary explaining all technical terms
+
+### References Added
+
+**External Articles:**
+- Teresa Torres: https://www.producttalk.org/claude-code-what-it-is-and-how-its-different/
+- Anthropic Official Plugins: https://github.com/anthropics/claude-plugins-official
+- Claude Directory: https://www.claudedirectory.org/
+- Claude Plugin Hub: https://www.claudepluginhub.com/
+- Scott Spence Configuration Guide
+- Composio Full-Stack Guides
+- IntuitionLabs Technical Comparisons
+- Alex Opacic Full Stack Overview
+
+---
+
 ## 🎨 Design System
 
 ### Colors
